@@ -6,21 +6,22 @@
     1. [Performance](#performance)
     2. [Browser compatibility](#browser-compatibility)
     3. [Mobile compatibility](#mobile-compatibility)
+    4. [PWAs support](#pwas-support)
     5. [ECMAScript 6](#ecmascript-6)
-    7. [Web components](#web-components)
-    8. [Security](#security)
-    9. [Learning curve](#learning-curve)
+    6. [Web components](#web-components)
+    7. [Security](#security)
+    8. [Learning curve](#learning-curve)
     9. [Knowledge needed](#knowledge-needed)
     10. [Stability](#stability)
-    14. [Latest version](#latest-version)
-    12. [Modules and libraries](#modules-and-libraries)
     11. [Development speed](#development-speed)
+    12. [Modules and libraries](#modules-and-libraries)
     13. [Community](#community)
+    14. [Latest version](#latest-version)
     15. [Scalability](#scalability)
     16. [Important Projects](#important-projects)
-    16. [AngularJS + Require](#angularjs-require) 
-    17. [Time on the market](#time-on-the-market)
-    18. [SEO friendly](#seo-friendly)
+    17. [AngularJS + Require](#angularjs-require) 
+    18. [Time on the market](#time-on-the-market)
+    19. [SEO friendly](#seo-friendly)
 * [Strenghs and Weaknesses](#strenghs-and-weaknesses) 
 * [Conclusion](#conclusion)
 * [Table](#table)
@@ -67,6 +68,11 @@ Please check out this official link if you plan to use angularJS on IE:
 The JavaScript components complement **Apache Cordova**, the framework used for developing cross-platform mobile apps. It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications.
 
 https://en.wikipedia.org/wiki/AngularJS
+
+## PWAs support
+
+Angular 1 hasn't special configurations or tools for progressive web app. You can create a PWA with angular, but starting from scratch.
+
 ## ECMAScript 6
 * Pros
     * ES5:
@@ -214,6 +220,7 @@ AngularJS is a stable and powerful framework to built medium and scalable applic
 | Performance | ![](assets/images/4.png) |
 | Browser Compatibility | ![](assets/images/5.png) |
 | Mobile Compatibility | ![](assets/images/5.png) |
+| PWAs support | ![](assets/images/2.png) |
 | ES5 | ![](assets/images/9.png) |
 | ES6 | ![](assets/images/4.png) |
 | Web components | ![](assets/images/1.png) |
@@ -225,7 +232,7 @@ AngularJS is a stable and powerful framework to built medium and scalable applic
 | Development speed | ![](assets/images/8.png) |
 | Modules and libraries | ![](assets/images/8.png) |
 | Stability | ![](assets/images/8.png) |
-| SEO | ![](assets/images/2.png) |
+| SEO Friendly | ![](assets/images/2.png) |
 
 
 ## Qualification

@@ -15,6 +15,7 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | Performance | ![](assets/images/4.png) | ![](assets/images/6.png) |
 | Browser Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) |
 | Mobile Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) |
+| PWAs support | ![](assets/images/2.png) | ![](assets/images/7.png) |
 | ES5 | ![](assets/images/9.png) | ![](assets/images/4.png) |
 | ES6 | ![](assets/images/4.png) | ![](assets/images/9.png) |
 | Web components | ![](assets/images/1.png) | ![](assets/images/5.png) |
@@ -26,6 +27,7 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | Development speed | ![](assets/images/6.png) | ![](assets/images/8.png) |
 | Modules and libraries | ![](assets/images/8.png) | ![](assets/images/4.png) |
 | Stability | ![](assets/images/8.png) | ![](assets/images/2.png) |
+| SEO Friendly | ![](assets/images/2.png) | ![](assets/images/8.png) |
 
 
 ## Qualification

@@ -9,20 +9,21 @@ This purpose of this article is analyze the Strengths and Weaknesses of Angular2
     2. [Browser compatibility](#browser-compatibility)
     3. [Mobile compatibility](#mobile-compatibility)
     4. [Hybrid application](#hybrid-application)
-    5. [ES5, ES6 & TypeScript](#es5-es6-typescript)
+    5. [PWAs support](#pwas-support)
+    6. [ES5, ES6 & TypeScript](#es5-es6-typescript)
     7. [Web components](#web-components)
     8. [Security](#security)
     9. [Learning curve](#learning-curve)
-    9. [Knowledge needed](#knowledge-needed)
-    10. [Stability](#stability)
-    11. [Development speed](#development-speed)
-    12. [Modules and libraries](#modules-and-libraries)
-    13. [Community](#community)
-    14. [Latest version](#latest-version)
-    15. [Scalability](#scalability)
-    16. [Important Projects](#important-projects) 
-    17. [Time on the market](#time-on-the-market)
-    18. [SEO friendly](#seo-friendly)
+    10. [Knowledge needed](#knowledge-needed)
+    11. [Stability](#stability)
+    12. [Development speed](#development-speed)
+    13. [Modules and libraries](#modules-and-libraries)
+    14. [Community](#community)
+    15. [Latest version](#latest-version)
+    16. [Scalability](#scalability)
+    17. [Important Projects](#important-projects) 
+    18. [Time on the market](#time-on-the-market)
+    19. [SEO friendly](#seo-friendly)
 * [Strengths and Weaknesses](#strengths-and-weaknesses) 
 * [Conclusion](#conclusion)
 * [Table](#table)
@@ -113,6 +114,12 @@ All of them are open source frameworks, to build Mobile app with HTML, CSS & JS,
     * iOS, Android and (soon) Windows. 
     * Documentation [https://docs.nativescript.org/](https://docs.nativescript.org/)
     * More info [https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular](https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular)
+
+## PWAs support
+
+Angular 2 team makes an extra-effort [creating some tools and references](https://github.com/angular/mobile-toolkit) in order to develop progressive web apps. This is improved by some Angular mechanism like lazyLoad modules and preload strategy, making the PWAs development easier.
+
+Using the angular-cli, you can use the --mobile flag when creating a new app to set upa few extra things to help get your Progressive Web App, such as the application manifest, the service workers or a build step for the App Shell generation.
 
 ## ES5, ES6 & TypeScript 
 
@@ -295,6 +302,7 @@ In the meantime, From FrontStack we are working to reduce the uncertainty with s
 | Performance | ![](assets/images/6.png) |
 | Browser Compatibility | ![](assets/images/4.png) |
 | Mobile Compatibility | ![](assets/images/4.png) |
+| PWAs support | ![](assets/images/7.png) |
 | ES5 | ![](assets/images/4.png) |
 | ES6 | ![](assets/images/9.png) |
 | Web components | ![](assets/images/7.png) |
@@ -306,7 +314,7 @@ In the meantime, From FrontStack we are working to reduce the uncertainty with s
 | Development speed | ![](assets/images/8.png) |
 | Modules and libraries | ![](assets/images/9.png) |
 | Stability | ![](assets/images/2.png) |
-| SEO | ![](assets/images/8.png) |
+| SEO Friendly | ![](assets/images/8.png) |
 
 
 ## Qualification
