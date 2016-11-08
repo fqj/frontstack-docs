@@ -20,6 +20,7 @@
     16. [Important Projects](#important-projects)
     16. [AngularJS + Require](#angularjs-require) 
     17. [Time on the market](#time-on-the-market)
+    18. [SEO friendly](#seo-friendly)
 * [Strenghs and Weaknesses](#strenghs-and-weaknesses) 
 * [Conclusion](#conclusion)
 * [Table](#table)
@@ -180,6 +181,9 @@ AngularJS is an SPA (single-page application) framework, which means that all ou
 ## Time on the market
 * Release date: October 20, 2010; 5 years ago
 
+## SEO Friendly
+Angular, as  a single page application framework doesn't work well with content crawlers and search engines such as Google or Bing. In order to make it work, a secondary tool like prerender.io becomes necessary to optimize the web SEO
+
 # Strenghs and Weaknesses
 
 ## Strenghs
@@ -221,6 +225,7 @@ AngularJS is a stable and powerful framework to built medium and scalable applic
 | Development speed | ![](assets/images/8.png) |
 | Modules and libraries | ![](assets/images/8.png) |
 | Stability | ![](assets/images/8.png) |
+| SEO | ![](assets/images/2.png) |
 
 
 ## Qualification

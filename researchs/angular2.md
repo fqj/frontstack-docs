@@ -22,6 +22,7 @@ This purpose of this article is analyze the Strengths and Weaknesses of Angular2
     15. [Scalability](#scalability)
     16. [Important Projects](#important-projects) 
     17. [Time on the market](#time-on-the-market)
+    18. [SEO friendly](#seo-friendly)
 * [Strengths and Weaknesses](#strengths-and-weaknesses) 
 * [Conclusion](#conclusion)
 * [Table](#table)
@@ -33,11 +34,13 @@ This purpose of this article is analyze the Strengths and Weaknesses of Angular2
 
 Angular2 has significantly improved the performance in contrast with its previous version AngularJS. 
 The most important improvements consist of:
-* Angular 2 uses the zones mechanism to make a lot of the reasoning about the digest cycle no longer necessary. 
-* [Angular2 change detection](https://vsavkin.com/change-detection-in-angular-2-4f216b855d4c#.l2ofq125y) allows Angular 2 to detect precisely when the model has changed.
+* Angular 2 uses the [zones mechanism](http://blog.thoughtram.io/angular/2016/01/22/understanding-zones.html) to make a lot of the reasoning about the digest cycle no longer necessary. 
+* [Angular2 change detection](https://vsavkin.com/change-detection-in-angular-2-4f216b855d4c#.l2ofq125y) allows Angular 2 to detect precisely when the model has changed. The performance can be improved drastically with the new onPush change detection strategy, which specify that only the defined input properties start the update cycle.
+* [Angular 2 preload strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb#.oaws8z3wr) allows Angular 2 to preload lazyLoaded modules meanwhile the app is active in order to improve the user experience. 
 * Faster checking of a single binding
 * Avoid scanning parts of the component tree
 * Lazy Loading but not out of the box
+* Pure vs Impure Pipes
 
 The following list of practices will help to boost the performance of an Angular 2 applications base on [Minko Gechev research](https://github.com/mgechev/angular-performance-checklist):
  * Bundling
@@ -45,9 +48,11 @@ The following list of practices will help to boost the performance of an Angular
  * Tree-shaking
  * Ahead-of-Time (AoT) Compilation
  * Compression
+ * Server-side rendering
+ * Caching and [use of Service Workers](https://github.com/angular/mobile-toolkit)
 
  For more info [https://github.com/mgechev/angular-performance-checklist](https://github.com/mgechev/angular-performance-checklist)
-
+ 
 ## Browser compatibility
 
 Angular supports most recent browsers. This includes the following specific versions:
@@ -101,7 +106,7 @@ All of them are open source frameworks, to build Mobile app with HTML, CSS & JS,
     * Still in Beta.
     * Documentation [http://ionicframework.com/docs/v2/](http://ionicframework.com/docs/v2/)
 
-* NativeScript
+* [NativeScript](https://www.nativescript.org/)
     * Generate native mobile apps with Angular, TypeScript or JavaScript.
     * Without WebView providing a better user experience and performance.
     * Supported by Telerik.
@@ -146,7 +151,12 @@ Angular2 component directives emulate Web Components behavior and it will be abl
 Like HTML5 spec web components, Angular 2 components have an extremely well defined life-cycle. As a result of this we can specify when different callback functions happen depending upon the state of a component.
 
 Angular2 component [style](https://angular.io/docs/ts/latest/guide/component-styles.html) definition is powerful because the framework provides special selectors, component style loaders and different methods of style encapsulations.
-It encapsulates the style inside the component avoiding css conflicts.    
+It encapsulates the style inside the component avoiding css conflicts. There are three ways of encapsulation    
+* Native, attaching native Shadow Dom to the component.
+* Emulated, emulates Shadow Dom behaviour preprocessing the CSS.
+* None, without encapsulation. Angular adds the styles to global styles.
+
+Despite of the fact that the Angular components are based on the Web Components standard, can´t be used outside of an Angular environment, making the components less reusable than other libraries like Polymer.
 
 ## Security 
 
@@ -182,6 +192,8 @@ Auditing angular applications:
 Angular 2’s learning curve is much steeper that other similar frameworks. It is a very opinionated franework which simplify significantly the development but complicate the learning process with their own conventions. 
 Even without TypeScript, their [Quickstart guide](https://angular.io/docs/js/latest/quickstart.html) starts out with an app that uses ES2015 JavaScript, NPM with 18 dependencies, etc.
 
+Angular provides an Angular module called [UpgradeAdapter](https://angular.io/docs/ts/latest/guide/upgrade.html#!#upgrading-with-the-upgrade-adapter) in order to support progressive upgrade to Angular 2. Thanks to this module, Angular 2 components can be used in Angular 1 applications even using Angular 1 directives in Angular 2 components' templates.
+
 ## Knowledge needed
 
  * TypeScript and Transpile process  
@@ -192,7 +204,7 @@ Even without TypeScript, their [Quickstart guide](https://angular.io/docs/js/lat
 
 ## Stability 
  * Angular2 has been recently released in September 15th, 2016.
- * In contrast with other framework, the stability of Angular2 is ensured by a dedicated Google team. 
+ * In contrast with other framework, the stability of Angular2 is ensured by a dedicated Google team.
 
 ## Latest version
 * [Latest version 2.1.0](https://github.com/angular/angular/releases)
@@ -237,6 +249,12 @@ Due to Angular bundle nature, it is important to follow a scalable project struc
 ## Time on the market 
 * Release date: September 15, 2016.
 
+## SEO friendly
+
+As a single page application framework, Angular 2 finds the same difficulties of other similiar technologies optimizing SEO. 
+Angular 2 resolve those problems with [Angular Universal](https://github.com/angular/universal). This module adds Universal (isomorphic) JavaScript support for Angular 2. This means that the HTML can be rendered on server, in order to presents static content to the user in the shortest possible time. Because of this statics assets, Angular applications improves the app´s engagement and becomes SEO friendly.
+Because of the Server-side rendering, Angular Universal makes necessary the content to be handled by a node server or similar.
+
 # Strengths and Weaknesses 
 
 ## Strengths
@@ -246,12 +264,13 @@ Due to Angular bundle nature, it is important to follow a scalable project struc
 * Dependency Injection
 * Server-side rendering
 * Mainly maintained by Google
+* Reusable components oriented Framework
 
 ## Weakness
 * TypeScript: Proprietary language
 * Steep learning curve. TypeScript and an opinionated syntax
 * Difficult to integrate with other frameworks
-* Slow as compared to native Web Components
+* Slow and heavy as compared to native Web Components
 * Limited Angular2 web components reutilization
 * The documentation and modules are limited, but increasing considerably lately
 * Complex bundling system in big projects
@@ -287,6 +306,7 @@ In the meantime, From FrontStack we are working to reduce the uncertainty with s
 | Development speed | ![](assets/images/8.png) |
 | Modules and libraries | ![](assets/images/9.png) |
 | Stability | ![](assets/images/2.png) |
+| SEO | ![](assets/images/8.png) |
 
 
 ## Qualification
@@ -302,3 +322,4 @@ In the meantime, From FrontStack we are working to reduce the uncertainty with s
 * [https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/](https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/)
 * [http://www.codingpedia.org/jhadesdev/angular-1-vs-angular-2-a-high-level-comparison/](http://www.codingpedia.org/jhadesdev/angular-1-vs-angular-2-a-high-level-comparison/)
 * [https://medium.com/javascript-scene/angular-2-vs-react-the-ultimate-dance-off-60e7dfbc379c#.orc4cxhho](https://medium.com/javascript-scene/angular-2-vs-react-the-ultimate-dance-off-60e7dfbc379c#.orc4cxhho)
+* [https://vsavkin.com/](https://vsavkin.com/)
