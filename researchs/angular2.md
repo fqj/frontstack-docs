@@ -35,6 +35,7 @@ This purpose of this article is analyze the Strengths and Weaknesses of Angular2
 
 Angular2 has significantly improved the performance in contrast with its previous version AngularJS. 
 The most important improvements consist of:
+
 * Angular 2 uses the [zones mechanism](http://blog.thoughtram.io/angular/2016/01/22/understanding-zones.html) to make a lot of the reasoning about the digest cycle no longer necessary. 
 * [Angular2 change detection](https://vsavkin.com/change-detection-in-angular-2-4f216b855d4c#.l2ofq125y) allows Angular 2 to detect precisely when the model has changed. The performance can be improved drastically with the new onPush change detection strategy, which specify that only the defined input properties start the update cycle.
 * [Angular 2 preload strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb#.oaws8z3wr) allows Angular 2 to preload lazyLoaded modules meanwhile the app is active in order to improve the user experience. 
@@ -44,6 +45,7 @@ The most important improvements consist of:
 * Pure vs Impure Pipes
 
 The following list of practices will help to boost the performance of an Angular 2 applications base on [Minko Gechev research](https://github.com/mgechev/angular-performance-checklist):
+
  * Bundling
  * Minification and dead code elimination
  * Tree-shaking
@@ -162,7 +164,8 @@ Angular2 component directives emulate Web Components behavior and it will be abl
 Like HTML5 spec web components, Angular 2 components have an extremely well defined life-cycle. As a result of this we can specify when different callback functions happen depending upon the state of a component.
 
 Angular2 component [style](https://angular.io/docs/ts/latest/guide/component-styles.html) definition is powerful because the framework provides special selectors, component style loaders and different methods of style encapsulations.
-It encapsulates the style inside the component avoiding css conflicts. There are three ways of encapsulation    
+It encapsulates the style inside the component avoiding css conflicts. There are three ways of encapsulation
+
 * Native, attaching native Shadow Dom to the component.
 * Emulated, emulates Shadow Dom behaviour preprocessing the CSS.
 * None, without encapsulation. Angular adds the styles to global styles.
@@ -189,6 +192,7 @@ Angular2 comes with built-in protections against common web application vulnerab
     * Cross-site script inclusion (XSSI): The attack works overriding native JavaScript object constructors. Angular's Http library recognizes this convention and automatically strips the string.  
 
 In addition to all the previous remarks, the following set of Best practices will help to improve the App security:  
+
  * Keep current with the latest Angular library releases.
  * Don't modify your copy of Angular.
  * Avoid Angular APIs marked in the documentation as [“Security Risk.”](https://angular.io/docs/ts/latest/guide/security.html#!#bypass-security-apis)
@@ -196,26 +200,28 @@ In addition to all the previous remarks, the following set of Best practices wil
 More Information in [https://angular.io/docs/ts/latest/guide/security.html](https://angular.io/docs/ts/latest/guide/security.html)
 
 Auditing angular applications:
+
  * Angular applications must follow the same security principles as regular web applications, and must be audited as such. Angular-specific APIs that should be audited in a security review, such as the bypassSecurityTrust methods, are marked in the documentation as security sensitive.
 
 ## Learning curve 
 
-Angular 2’s learning curve is much steeper that other similar frameworks. It is a very opinionated franework which simplify significantly the development but complicate the learning process with their own conventions. 
+Angular 2’s learning curve is much steeper than other similar frameworks. It is a very opinionated framework which simplify significantly the development but complicate the learning process with their own conventions. 
 Even without TypeScript, their [Quickstart guide](https://angular.io/docs/js/latest/quickstart.html) starts out with an app that uses ES2015 JavaScript, NPM with 18 dependencies, etc.
 
-Angular provides an Angular module called [UpgradeAdapter](https://angular.io/docs/ts/latest/guide/upgrade.html#!#upgrading-with-the-upgrade-adapter) in order to support progressive upgrade to Angular 2. Thanks to this module, Angular 2 components can be used in Angular 1 applications even using Angular 1 directives in Angular 2 components' templates.
+Angular provides an Angular module called [UpgradeAdapter](https://angular.io/docs/ts/latest/guide/upgrade.html#!#upgrading-with-the-upgrade-adapter) in order to support progressive upgrade to Angular 2. Thanks to this module,
+Angular 2 components can be used in Angular 1 applications even using Angular 1 directives in Angular 2 components' templates.
 
 ## Knowledge needed
 
  * TypeScript and Transpile process  
  * Angular2 opinionated syntax, strict and verbose
  * bundling strategies
- * Designs pattern such us Observers and Componentization 
- * Zones
+ * Design patterns such as Modules, Observers and Componentization 
+ * [Zones in javascript](https://github.com/angular/zone.js/)
 
 ## Stability 
- * Angular2 has been recently released in September 15th, 2016.
- * In contrast with other framework, the stability of Angular2 is ensured by a dedicated Google team.
+ * Angular2 has been recently released in September 15th, 2016, so looks to be change prone.
+ * In contrast with other frameworks, the stability and long term support of Angular2 is ensured by a dedicated Google team.
 
 ## Latest version
 * [Latest version 2.1.0](https://github.com/angular/angular/releases)
