@@ -100,7 +100,8 @@ All of them are open source frameworks, to build Mobile app with HTML, CSS & JS,
     * Documentation [https://cordova.apache.org/docs/en/latest/](https://cordova.apache.org/docs/en/latest/)
 
 * [Ionic 2](http://ionicframework.com/)
-    * Set of Angular2 modules and components, optimized to provide a good mobile performance and improve de user experience.
+    * Set of Angular2 modules and components optimized to provide a good mobile performance and improve the user experience
+      with multiplatform near native UI appearance.
     * Ionic2 CLI extend Cordova functionalities with more mobile features.  
     * Prototype Ionic app creator.
     * Market of components. [http://market.ionic.io/](http://market.ionic.io/)
@@ -125,31 +126,34 @@ Using the angular-cli, you can use the --mobile flag when creating a new app to 
 
 * Pros
     * ES5:
-        * You have most browser support.
-        * AngularJS documentation and all his examples are built in ES5.
+        * You have full range browser support.
     * ES6:
         * You have tail call optimization.
-        * You have import statements.
-        * Lamba's are pretty chill.
+        * You have import statements with ES6 modules.
+        * Fat arrow functions are pretty chill.
         * Immutable and block scoping objects with "const" and "let".
-        * Classes and OO inheritence.
+        * Classes and OO inheritance.
+        * Function default values.
+        * REST operator.
         * Functors, and all that functional goodness.
         * String templates that handle interpolation for you.
+        * Full information [here](http://es6-features.org/)
     * TypeScript:
-        * Typed language.
+        * Strict typed language.
         * Most of ES6 functionalities without the need of polyfills.
-        * Support to powerful context assistant
+        * Support to powerful coding context assistants
 
 * Cons
     * ES5:
         * It doesn't have everything that ES6 has.
     * ES6:
         * It doesn't have all the support that ES5 has, but you can always transpile your ES6 code.
-    *TypeScript:
+    * TypeScript:
         * Need to be transpiled into ES6 or ES5
         * Proprietary Language
+        * Strict typing could be a problem for pure JS developers
 
-> It is recommended the use of TypeScript with Angular2 projects because big part of the official documentation, examples and the framework itself is written in TypeScript.   
+> It is recommended the use of TypeScript with Angular2 projects because as of today the major part of the official documentation, examples and the framework itself is written in TypeScript.   
 
 ## Web components
 
