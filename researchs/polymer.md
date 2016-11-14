@@ -155,13 +155,38 @@ One of the advantages of using web components with Polymer is that it has a buil
 
 ## Learning curve 
 
+The learning curve for Polymer is measured in hours.  Compared to heavier weight frameworks like ExtJS or Angular, you will sooner be spending your time crafting your application instead of trying to figuring out and fighting with the core of the framework to achieve what you desire.
+
 ## Knowledge needed
+
+* Shady Dom, Shadow Dom and Virtual Dom behaviours.
+* ES5 or ES6.
+* Component design pattern.
+* Vulcanize or bundling strategies.
 
 ## Stability 
 
+* The Google team is already working on the next version (Polymer version 2). The current version (Polymer version 1) is using v0 Custom Elements. v0 is supported now by Google and Safari only. Custom Elements v1 will be supported by a variety of other browsers including: Microsoft, Opera, Firefox. Developers and businesses can look forward to better performance and the reduced need for Polyfills. This step is huge for the Polymer community.
+
+* Provide smooth migration from Polymer 1.x. To upgrade, you will need to make some changes to your 1.x-based code. These changes are necessitated by both the v0-to-v1 spec transition and a handful of key improvements in Polymer itself.Polymer taken care to limit the number of changes that are strictly required and to ease the process of upgrading.
+
 ## Latest version
+[Stable Release v1.7.0]
+
+Link to the changeLog [https://github.com/Polymer/polymer/blob/master/CHANGELOG.md]
+
+  [Stable Release v1.7.0]: https://github.com/Polymer/polymer/releases/tag/v1.7.0
+  [https://github.com/Polymer/polymer/blob/master/CHANGELOG.md]: https://github.com/Polymer/polymer/blob/master/CHANGELOG.md
 
 ## Community 
+
+* Mainly maintained by Google
+* Angular community Size in numbers
+  * Github Stars 17K
+  * Github Forks 4,5K
+  * Github Contributors 342
+  * Stackoverflow questions 21K
+  * Stackoverflow followers 7,7K
 
 ## Modules and libraries 
 
