@@ -188,10 +188,47 @@ Link to the changeLog [https://github.com/Polymer/polymer/blob/master/CHANGELOG.
   * Stackoverflow questions 21K
   * Stackoverflow followers 7,7K
 
+* Support
+  * [StackOverflow] with the `polymer` tag is perfect for any kind of question around developing using the Polymer library.
+  * [polymer-dev] email list is great for long-form questions and discussion.
+
+  [StackOverflow]: https://stackoverflow.com/tags/polymer
+  [polymer-dev]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
+
+* News and Announcements
+  * Follow [@Polymer] on Twitter for the latest on web components and the Polymer project.
+  * The [Polymer Blog] has more detailed articles on the latest updates to the project.
+
+  [@Polymer]: https://twitter.com/polymer
+  [Polymer Blog]: /1.0/blog/
+
+* Polymer User Community
+  * [Slack] is an active chatroom for quick questions, conversations, sharing and more. Sign up [here] to join.
+  * [Google Plus Community] is a great place to interact with other Polymer users.
+
+  [Slack]: https://polymer.slack.com/messages
+  [here]: https://polymer-slack.herokuapp.com
+  [Google Plus Community]: https://plus.sandbox.google.com/+PolymerProject/posts
+
 ## Modules and libraries 
+
+* [webcomponents.org]. A collection of elements made by the Polymer team.
+* [customelements.io]. Featuring 2582 repositories from 1032 authors.
+* [builtwithpolymer.org]. Built with Polymer is a curated collection of web apps and websites using Polymer.
+* [Bower]
+
+[webcomponents.org]: https://beta.webcomponents.org/collection/Polymer/elements
+[customelements.io]: https://customelements.io/
+[Bower]: https://bower.io/
+[builtwithpolymer.org]: https://builtwithpolymer.org/
 
 ## Development speed  
 
+Polymer help you build your web components more fast and easy and has, [Polymer Cli]:
+
+[Polymer CLI] is a command-line interface for Polymer projects. It includes a build pipeline, a boilerplate generator for creating elements and apps, a linter, a development server, and a test runner.
+
+[Polymer CLI]: https://www.polymer-project.org/1.0/docs/tools/polymer-cli
 
 ## Scalability 
 
