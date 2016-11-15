@@ -240,6 +240,11 @@ Polymer help you build your web components more fast and easy and has, [Polymer 
 
 Polymer was specially conceived to work component oriented, allowing distributed teams to work at the same time in the same project concurrently.
 
+It has patterns like "atomic", which help scalability.
+
+Atomic Design details all that goes into creating and maintaining robust design systems, allowing you to roll out higher quality, more consistent UIs faster than ever before. This book introduces a methodology for thinking of our UIs as thoughtful hierarchies, discusses the qualities of effective pattern libraries, and showcases techniques to transform your team's design and development workflow.
+
+
 ## SEO Friendly
 ### No server-side rendering
 
@@ -264,15 +269,25 @@ These webs are some of the ones that use polymer:
 
 ## Time on the market 
 
+* Release date: May 29, 2015.
+
 # Strengths and Weaknesses 
 
 ## Strengths
+* Believes in use Standard web.
+* Catalogs to take advantage of community-created components.
+* Compatibility with other ecosystems.
+* Good learning curve.
+* Powerfull tools for progressive web apps.
 
 ## Weakness
+* Low performance in hybrid applications
+* With polymer you should cook everything. And the basic components of the catalog are very basic.
+* Browser compatibility
 
 # Conclusion
 
-
+Polymer lacks the wide range tools that other full stack frameworks offer, but otherwise the it take advantage of browser native web component features that makes it a very simple but powerfull library.
 
 # Table
 
@@ -282,27 +297,29 @@ These webs are some of the ones that use polymer:
 
 | Category | Score |
 |----------|-------|
-| Community | ![](assets/images/1.png) |
-| Learning curve | ![](assets/images/1.png) |
-| Performance | ![](assets/images/1.png) |
-| Browser Compatibility | ![](assets/images/1.png) |
+| Community | ![](assets/images/6.png) |
+| Learning curve | ![](assets/images/8.png) |
+| Performance | ![](assets/images/7.png) |
+| Browser Compatibility | ![](assets/images/2.png) |
 | Mobile Compatibility | ![](assets/images/1.png) |
-| ES5 | ![](assets/images/1.png) |
-| ES6 | ![](assets/images/1.png) |
-| Web components | ![](assets/images/1.png) |
-| Reuse components | ![](assets/images/1.png) |
-| Security | ![](assets/images/1.png) |
-| Time on market | ![](assets/images/1.png) |
-| Scalability | ![](assets/images/1.png) |
-| Knowledge needed | ![](assets/images/1.png) |
-| Development speed | ![](assets/images/1.png) |
-| Modules and libraries | ![](assets/images/1.png) |
-| Stability | ![](assets/images/1.png) |
+| PWAs support | ![](assets/images/9.png)
+| ES5 | ![](assets/images/9.png) |
+| ES6 | ![](assets/images/3.png) |
+| Web components | ![](assets/images/9.png) |
+| Reuse components | ![](assets/images/9.png) |
+| Security | ![](assets/images/5.png) |
+| Time on market | ![](assets/images/8.png) |
+| Scalability | ![](assets/images/9.png) |
+| Knowledge needed | ![](assets/images/8.png) |
+| Development speed | ![](assets/images/8.png) |
+| Modules and libraries | ![](assets/images/9.png) |
+| Stability | ![](assets/images/3.png) |
+| SEO Friendly | ![](assets/images/2.png) |
 
 
 ## Qualification
 
-| **Polymer** | Qualification | ![](assets/images/1.png) |
+| **Polymer** | Qualification | ![](assets/images/6.png) |
 |----|------|-----|
 
 > This research has been documented by the resources mentioned above on this document and the FrontStack team can't make test to verify the fully complexity of Polymer and it is based on our own experience.
