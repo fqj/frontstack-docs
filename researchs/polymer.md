@@ -242,6 +242,19 @@ Original Source at [https://www.slant.co/versus/10826/11171/~ionic-framework_vs_
 
 ## Important Projects 
 
+These webs are some of the ones that use polymer:
+
+* [YouTube] web site.
+* [gaming.youtube.com]
+* [usatoday.com]
+
+[builtwithpolymer.org] is a curated collection of web apps and websites using Polymer.
+
+[YouTube]: https://www.youtube.com/ 
+[gaming.youtube.com]: gaming.youtube.com
+[usatoday.com]: http://www.usatoday.com/
+[builtwithpolymer.org]: https://builtwithpolymer.org/
+
 ## Time on the market 
 
 # Strengths and Weaknesses 
