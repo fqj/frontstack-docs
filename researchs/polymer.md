@@ -33,6 +33,23 @@ This purpose of this article is analyze the Strengths and Weaknesses of Polymer 
 
 As a sample of the performance difference between 0.5 and 1.0, the results from our medium-list benchmark was that Polymer 1.0 was about 3x faster on Chrome and 4x faster on Safari. The benchmark measures time to first paint for an application with a few thousand nested custom elements, with data binding.
 
+[In this talk, we cover tips and tricks for speeding up first paint, lazy loading components, and various runtime optimizations.]
+
+[In this talk, we cover tips and tricks for speeding up first paint, lazy loading components, and various runtime optimizations.]: https://www.youtube.com/watch?v=Yr84DpNaMfk
+
+[A look into how to identify why a site is slow with Dev Tools, and techniques based around the PRPL pattern to make things fast again.]
+
+[A look into how to identify why a site is slow with Dev Tools, and techniques based around the PRPL pattern to make things fast again.]:https://www.youtube.com/watch?v=6m_E-mC0y3Y
+
+### PRPL
+
+To optimize delivery, the Toolbox uses the PRPL pattern, which stands for:
+
+* Push critical resources for the initial route.
+* Render initial route.
+* Pre-cache remaining routes.
+* Lazy-load and create remaining routes on demand.
+
 ## Browser compatibility
 
 With the polyfills, Polymer works in these browsers:
@@ -153,6 +170,8 @@ One of the advantages of using web components with Polymer is that it has a buil
 
 ## Security  
 
+Polymer is a library that makes your life easier by developing web components. The security that you can find in Polymer is what you find in the catalogs or your own security.
+
 ## Learning curve 
 
 The learning curve for Polymer is measured in hours.  Compared to heavier weight frameworks like ExtJS or Angular, you will sooner be spending your time crafting your application instead of trying to figuring out and fighting with the core of the framework to achieve what you desire.
@@ -232,6 +251,7 @@ Polymer help you build your web components more fast and easy and has, [Polymer 
 
 ## Scalability 
 
+Polymer was specially conceived to work component oriented, allowing distributed teams to work at the same time in the same project concurrently.
 
 ## SEO Friendly
 ### No server-side rendering
