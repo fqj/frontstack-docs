@@ -120,23 +120,10 @@ Original Source at [https://www.polymer-project.org/1.0/toolbox/](https://www.po
 
 ## ES5, ES6 & TypeScript 
 
-* Pros
-    * ES5:
-        * You have most browser support.
-    * ES6:
-        * You have tail call optimization.
-        * You have import statements.
-        * Lamba's are pretty chill.
-        * Immutable and block scoping objects with "const" and "let".
-        * Classes and OO inheritence.
-        * Functors, and all that functional goodness.
-        * String templates that handle interpolation for you.
-
-* Cons
-    * ES5:
-        * It doesn't have everything that ES6 has.
-    * ES6:
-        * It doesn't have all the support that ES5 has, but you can always transpile your ES6 code.
+  Even when Polymer 1.0 Core is written originally in ES5 you could transpile your code to ES6 and use polymer component
+  syntax to write your code. With the 2.0 version of the framework they have migrated almost the entire codebase to
+  ES6 so now they recommend using ES6 since the release of the 1.7 version and de 2.0 preview. Even when you could use
+  typescript it is not recommended or supported by Polymer by the time being.
 
 
 ## Web components
@@ -301,4 +288,3 @@ These webs are some of the ones that use polymer:
 > This research has been documented by the resources mentioned above on this document and the FrontStack team can't make test to verify the fully complexity of Polymer and it is based on our own experience.
 
 # Sources
-
