@@ -8,53 +8,55 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 |---|---|---|---|---|---|---|---|---|
 | ![](assets/images/1.png) | ![](assets/images/2.png)  | ![](assets/images/3.png) | ![](assets/images/4.png) |  ![](assets/images/5.png)    | ![](assets/images/6.png) | ![](assets/images/7.png) | ![](assets/images/8.png) | ![](assets/images/9.png) |
 
-| Category | AngularJS 1.5 | Angular2 |
-|----------|-------|-------|
-| Community | ![](assets/images/9.png) | ![](assets/images/9.png) |
-| Learning curve | ![](assets/images/4.png) | ![](assets/images/6.png) |
-| Performance | ![](assets/images/4.png) | ![](assets/images/6.png) |
-| Browser Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) |
-| Mobile Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) |
-| ES5 | ![](assets/images/9.png) | ![](assets/images/4.png) |
-| ES6 | ![](assets/images/4.png) | ![](assets/images/9.png) |
-| Web components | ![](assets/images/1.png) | ![](assets/images/5.png) |
-| Reuse components | ![](assets/images/7.png) | ![](assets/images/7.png) |
-| Security | ![](assets/images/7.png) | ![](assets/images/8.png) |
-| Time on market | ![](assets/images/7.png) | ![](assets/images/7.png) |
-| Scalability | ![](assets/images/7.png) | ![](assets/images/8.png) |
-| Knowledge needed | ![](assets/images/6.png) | ![](assets/images/6.png) |
-| Development speed | ![](assets/images/6.png) | ![](assets/images/8.png) |
-| Modules and libraries | ![](assets/images/8.png) | ![](assets/images/4.png) |
-| Stability | ![](assets/images/8.png) | ![](assets/images/2.png) |
+| Category | AngularJS 1.5 | Angular2 | Polymer |
+|----------|-------|-------|--------|
+| Community | ![](assets/images/9.png) | ![](assets/images/9.png) | ![](assets/images/6.png) |
+| Learning curve | ![](assets/images/4.png) | ![](assets/images/6.png) | ![](assets/images/8.png) |
+| Performance | ![](assets/images/4.png) | ![](assets/images/6.png) | ![](assets/images/7.png) |
+| Browser Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) | ![](assets/images/2.png) |
+| Mobile Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) | ![](assets/images/1.png) |
+| PWAs support | ![](assets/images/2.png) | ![](assets/images/7.png) | ![](assets/images/9.png) |
+| ES5 | ![](assets/images/9.png) | ![](assets/images/4.png) | ![](assets/images/9.png) |
+| ES6 | ![](assets/images/4.png) | ![](assets/images/9.png) | ![](assets/images/3.png) |
+| Web components | ![](assets/images/1.png) | ![](assets/images/5.png) | ![](assets/images/9.png) |
+| Reuse components | ![](assets/images/7.png) | ![](assets/images/7.png) | ![](assets/images/9.png) |
+| Security | ![](assets/images/7.png) | ![](assets/images/8.png) | ![](assets/images/5.png) |
+| Time on market | ![](assets/images/7.png) | ![](assets/images/7.png) | ![](assets/images/8.png) |
+| Scalability | ![](assets/images/7.png) | ![](assets/images/8.png) | ![](assets/images/9.png) |
+| Knowledge needed | ![](assets/images/6.png) | ![](assets/images/6.png) | ![](assets/images/8.png) |
+| Development speed | ![](assets/images/6.png) | ![](assets/images/8.png) | ![](assets/images/8.png) |
+| Modules and libraries | ![](assets/images/8.png) | ![](assets/images/4.png) | ![](assets/images/9.png) |
+| Stability | ![](assets/images/8.png) | ![](assets/images/2.png) | ![](assets/images/3.png) |
+| SEO Friendly | ![](assets/images/2.png) | ![](assets/images/8.png) | ![](assets/images/2.png) |
 
 
 ## Qualification
 
-| | AngularJS 1.5 | Angular 2 |
-|-----|-----|-----|
-| Qualification | ![](assets/images/6.png) | ![](assets/images/6.png) |
+| | AngularJS 1.5 | Angular 2 | Polymer |
+|-----|-----|-----|-----|
+| Qualification | ![](assets/images/6.png) | ![](assets/images/6.png) | ![](assets/images/6.png) |
 
 
 ## AngularJS vs Angular2
 
-| | AngularJS 1.5 | Angular 2 |
-|-----|-----|-----|
+| | AngularJS 1.5 | Angular 2 | Polymer |
+|-----|-----|-----|-----|
 | **Recommended** | | |
-| | CRUD Applications | CRUD Applications |
-| | Short or tight project schedule | SEO & public visibility |
-| | Plenty libraries and modules | light weigh & fast loading app |
-| | AngularJS experienced team | ES6 or TypeScript |
-| | SPA and Rich interface Applications | Their own web components standard implementation |
-| | ES5 | Flexible to Future evolution |
-| | Stable framework | |
+| | CRUD Applications | CRUD Applications | Reusability |
+| | Short or tight project schedule | SEO & public visibility | Short learning curve |
+| | Plenty libraries and modules | light weigh & fast loading app | Native web components |
+| | AngularJS experienced team | ES6 or TypeScript | Components catalogs |
+| | SPA and Rich interface Applications | Their own web components standard implementation | PRPL Pattern |
+| | ES5 | Flexible to Future evolution | ES5
+| | Stable framework | | Webapps
 | **Not recommended** | | |
-| | SPA and Rich interface App | Learning Typescript could be a problem |
-| | SEO & Public visibility | Broad browser compatibility |
-| | ES6 or Typescript | Lack of libraries & modules |
-| | Component reutilization in other non angular projects | Component reutilization in other non angular projects |
+| | SPA and Rich interface App | Learning Typescript could be a problem | Has few features
+| | SEO & Public visibility | Broad browser compatibility | SEO & Public visibility
+| | ES6 or Typescript | Lack of libraries & modules | ES6 or Typescript
+| | Component reutilization in other non angular projects | Component reutilization in other non angular projects | Hybrid apps
 | | Flexible to Future evolution | |
 | **Risks** |  |  |
-| | Future deprecation | Immature framework |
+| | Future deprecation | Immature framework | In constant change |
 
 
 ## Sources
