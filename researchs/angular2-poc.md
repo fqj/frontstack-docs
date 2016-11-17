@@ -26,7 +26,7 @@ angular2-basic/
  │   │   │
  │   │   ├──app.module.ts           * App.ts: a simple version of our App component components
  │   │   │
- │   │   ├──index.ts           * our source entry file 
+ │   │   ├──index.ts           * our source entry file
  │   │   .
  │   │
  │   └──assets/                * static assets
@@ -51,17 +51,17 @@ angular2-basic/
     * Los recursos de Modulos (Imagenes, etc.) en Assets global
 * CSS
     * Plain CSS para la App
-    * Plugin de SASS para WebPack 
-* Test 
+    * Plugin de SASS para WebPack
+* Test
     * Calidad de Codigo: Codelyzer (http://codelyzer.com/)
-    * Uunitarios: Karma Mocha Jasmine --> con Polymer metemos Mocha 
+    * Unitarios: Karma Mocha Jasmine --> con Polymer metemos Mocha 
     * Funcionales: Protractor
     * Reporting: los acordados con ALM de Angular1.5
 * TypeDoc para Documentacion ( docuemtar TypeScript )
 
 **Excluido**
 * Modulo de cacheo u Offline
-* Modulo internacionalizacion ( i18n ) 
+* Modulo internacionalizacion ( i18n )
 
 ## Puntos en comun
 
@@ -81,16 +81,16 @@ angular2-basic/
     * E2E no funciona con angularClass (Dependencia rota)
 
 * Arquitectura de Modulos:
-    * Shared / Core / Modules 
+    * Shared / Core / Modules
     * AppShell con el modulo principal, el resto con LazyLoad.
     * Arquitecturas redux no para angular2 basic
     * Imagenes/assets en componentes? Falta resolver
     * **ViewEncapsulation** define el tipo de encapsulacion a nivel de Componente.
         * Probar tipo de encapsulacion (default, emulada) (mirar tambien con jit o aot)
         * Emulated (con AoT queda resuelto) , Native (Polyfils) y None ¿¿??
-   
+
 * Routing:
-    * Se redefinen las rutas cuando hay varias que definen la misma? se sobreescribe? 
+    * Se redefinen las rutas cuando hay varias que definen la misma? se sobreescribe?
     * Authentication con Guards en el Route con Lazy Load
     * **router.events.subscribe** nos provee de Info de Navegación.
         * Navigation (se puede controlar las rutas y navegación)(spinners, google analytics)
@@ -108,7 +108,7 @@ angular2-basic/
     * Augury (extension de chrome para debuggear Angular 2)
 
 * Pruebas:
-    * Pruebas unitarias dentro en el moduo 
+    * Pruebas unitarias dentro en el moduo
     Pruebas funcionales fuera
 
 * Optimizaciones
@@ -119,10 +119,10 @@ angular2-basic/
 
 * Integracion con Polymer:
     * Web-componnets-shard: Chunks de HTML Imports
-        * Util para Imports de web components (Polymer) 
+        * Util para Imports de web components (Polymer)
         * https://github.com/PolymerLabs/web-component-shards
 
-* Rollup 
+* Rollup
     * Rollup js (webpack no combina aun con rollup) JSPM vs SystemJS ???
 
 * ALM
@@ -141,6 +141,5 @@ angular2-basic/
     * Propia integración continua
 * Imagenes/assets en componentes? Falta resolver
 * Web component shards (polymer) Si vamos hacer pruebas con Angular 2 y Polymer, (ver como incluirlo con webpack) (util para hacer los import de los html en webpack) Hablar de esto cuando hagamos la parte de Polymer
-     
-### Riesgos
 
+### Riesgos
