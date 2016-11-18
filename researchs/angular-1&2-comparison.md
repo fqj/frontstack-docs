@@ -50,7 +50,7 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | | ES5 | Flexible to Future evolution | ES5
 | | Stable framework | | Webapps
 | **Not recommended** | | |
-| | SPA and Rich interface App | Learning Typescript could be a problem | Has few features
+| | SPA and Rich interface App | Learning Typescript could be a problem | You must develop many features that you must have
 | | SEO & Public visibility | Broad browser compatibility | SEO & Public visibility
 | | ES6 or Typescript | Lack of libraries & modules | ES6 or Typescript
 | | Component reutilization in other non angular projects | Component reutilization in other non angular projects | Hybrid apps

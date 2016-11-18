@@ -141,8 +141,9 @@ Original Source at [https://www.polymer-project.org/1.0/toolbox/](https://www.po
 
   Even when Polymer 1.0 Core is written originally in ES5 you could transpile your code to ES6 and use polymer component
   syntax to write your code. With the 2.0 version of the framework they have migrated almost the entire codebase to
-  ES6 so now they recommend using ES6 since the release of the 1.7 version and de 2.0 preview. Even when you could use
-  typescript it is not recommended or supported by Polymer by the time being.
+  ES6 so now they recommend using ES6 since the release of the 1.7 version and de 2.0 preview. 
+  
+  There is a definition file for Polymer in typings (http://microsoft.github.io/TypeSearch/) than make easier call to Polymer library from TypeScript code.
 
 
 ## Web components
@@ -276,9 +277,9 @@ These webs are some of the ones that use polymer:
 # Strengths and Weaknesses 
 
 ## Strengths
+* Best way to make reusable code between different proyects and tecnologies.
 * Believes in use Standard web.
 * Catalogs to take advantage of community-created components.
-* Compatibility with other ecosystems.
 * Good learning curve.
 * Powerfull tools for progressive web apps.
 
