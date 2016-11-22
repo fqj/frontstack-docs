@@ -7,7 +7,7 @@ This purpose of this article is analyze the Strengths and Weaknesses of Polymer 
 * [Analysis](#Analysis)
     1. [Performance](#Performance)
     2. [Browser compatibility](#browser-compatibility)
-    3. [Mobile compatibility](#mobile-compatibility)
+    3. [Hybrid compatibility](#hybrid-compatibility)
     4. [Hybrid application](#hybrid-application)
     5. [PWAs support](#pwas-support)
     6. [ES5, ES6 & TypeScript](#es5-es6-typescript)
@@ -83,7 +83,7 @@ Original Source at [https://github.com/webcomponents/webcomponentsjs](https://gi
 and [https://www.polymer-project.org/1.0/docs/browsers](https://www.polymer-project.org/1.0/docs/browsers)
 > To Check browser compatibility of your project here: [https://www.browserstack.com/](https://www.browserstack.com/)
 
-## Mobile compatibility
+## Hybrid compatibility
 
 With the polyfills, Polymer works in these mobile browsers:
 
@@ -146,7 +146,8 @@ Original Source at [https://www.polymer-project.org/1.0/toolbox/](https://www.po
   There is a definition file for Polymer in typings (http://microsoft.github.io/TypeSearch/) than make easier call to Polymer library from TypeScript code.
 
 
-## Web components
+## [Web components]
+
 
 [Polymer] is a lightweight library that helps you take full advantage of Web Components.
 
@@ -157,6 +158,7 @@ With Web Components, you can create reusable custom elements that interoperate s
 One of the advantages of using web components with Polymer is that it has a built in data binding model (like Angular) enabling complete applications to be made without any other libraries.
 
 [Polymer]: https://www.polymer-project.org/1.0/
+[Web Components]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
 
 ## Security  
 
@@ -190,7 +192,7 @@ Link to the changeLog [https://github.com/Polymer/polymer/blob/master/CHANGELOG.
 ## Community 
 
 * Mainly maintained by Google
-* Angular community Size in numbers
+* Polymer community Size in numbers
   * Github Stars 17K
   * Github Forks 4,5K
   * Github Contributors 342
@@ -233,10 +235,13 @@ Link to the changeLog [https://github.com/Polymer/polymer/blob/master/CHANGELOG.
 
 ## Development speed  
 
+The [Web Components catalogs] allow you to reuse components from the community, which means that development time is reduced.
+
 Polymer help you build your web components more fast and easy and has, [Polymer Cli]:
 
 [Polymer CLI] is a command-line interface for Polymer projects. It includes a build pipeline, a boilerplate generator for creating elements and apps, a linter, a development server, and a test runner.
 
+[Web Components catalogs]: https://beta.webcomponents.org/collection/Polymer/elements
 [Polymer CLI]: https://www.polymer-project.org/1.0/docs/tools/polymer-cli
 
 ## Scalability 
@@ -304,7 +309,7 @@ Polymer lacks the wide range tools that other full stack frameworks offer, but o
 | Learning curve | ![](assets/images/8.png) |
 | Performance | ![](assets/images/7.png) |
 | Browser Compatibility | ![](assets/images/2.png) |
-| Mobile Compatibility | ![](assets/images/1.png) |
+| hybrid Compatibility | ![](assets/images/3.png) |
 | PWAs support | ![](assets/images/9.png)
 | ES5 | ![](assets/images/9.png) |
 | ES6 | ![](assets/images/3.png) |
