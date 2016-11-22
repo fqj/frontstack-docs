@@ -96,7 +96,7 @@ and [https://www.polymer-project.org/1.0/docs/browsers](https://www.polymer-proj
 
 Without the polyfills, Polymer works in these mobile browsers:
 
-| Polyfill        | Chrome Android\* | Safari (iOS 7.1)\* |
+| Without Polyfill        | Chrome Android\* | Safari (iOS 7.1)\* |
 |-----------------|------------------|--------------------|
 | Custom Elements | ✓                | ~                  |
 | HTML Imports    | ✓                | ~                  |
