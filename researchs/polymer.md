@@ -54,7 +54,16 @@ To optimize delivery, the Toolbox uses the PRPL pattern, which stands for:
 
 ## Browser compatibility
 
-With the polyfills, Polymer works in these browsers:
+Without the polyfills, Polymer works in these browsers:
+
+| Without Polyfill| IE10 | IE11+ | Chrome\* | Firefox\* | Safari 10+\* |
+|-----------------|------|-------|----------|-----------|-------------|
+| Custom Elements | ~    | ~     | ✓        | ~         | ~           |
+| HTML Imports    | ~    | ~     | ✓        | ~         | ~           |
+| Shadow DOM      | ~    | ~     | ✓        | ~         | ✓           |
+| Templates       | ~    | ~     | ✓        | ✓         | ✓           |
+
+and with the polyfills:
 
 | Polyfill        | IE10 | IE11+ | Chrome\* | Firefox\* | Safari 7+\* |
 |-----------------|------|-------|----------|-----------|-------------|
@@ -89,9 +98,9 @@ With the polyfills, Polymer works in these mobile browsers:
 
 | Polyfill        | Chrome Android\* | Safari (iOS 7.1)\* |
 |-----------------|------------------|--------------------|
-| Custom Elements | ✓                | ✓                  |
-| HTML Imports    | ✓                | ✓                  |
-| Shadow DOM      | ✓                | ✓                  |
+| Custom Elements | ✓                | ~                  |
+| HTML Imports    | ✓                | ~                  |
+| Shadow DOM      | ✓                | ~                  |
 | Templates       | ✓                | ✓                  |
 
 Original Source at [https://github.com/webcomponents/webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
