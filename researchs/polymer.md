@@ -94,13 +94,22 @@ and [https://www.polymer-project.org/1.0/docs/browsers](https://www.polymer-proj
 
 ## Hybrid compatibility
 
-With the polyfills, Polymer works in these mobile browsers:
+Without the polyfills, Polymer works in these mobile browsers:
 
 | Polyfill        | Chrome Android\* | Safari (iOS 7.1)\* |
 |-----------------|------------------|--------------------|
 | Custom Elements | ✓                | ~                  |
 | HTML Imports    | ✓                | ~                  |
 | Shadow DOM      | ✓                | ~                  |
+| Templates       | ✓                | ✓                  |
+
+And with the polyfills:
+
+| Polyfill        | Chrome Android\* | Safari (iOS 7.1)\* |
+|-----------------|------------------|--------------------|
+| Custom Elements | ✓                | ✓                  |
+| HTML Imports    | ✓                | ✓                  |
+| Shadow DOM      | ✓                | ✓                  |
 | Templates       | ✓                | ✓                  |
 
 Original Source at [https://github.com/webcomponents/webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
