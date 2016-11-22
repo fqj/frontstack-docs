@@ -11,10 +11,10 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | Category | AngularJS 1.5 | Angular2 | Polymer |
 |----------|-------|-------|--------|
 | Community | ![](assets/images/9.png) | ![](assets/images/9.png) | ![](assets/images/6.png) |
-| Learning curve | ![](assets/images/4.png) | ![](assets/images/6.png) | ![](assets/images/8.png) |
+| Learning curve* | ![](assets/images/5.png) | ![](assets/images/5.png) | ![](assets/images/8.png) |
 | Performance | ![](assets/images/4.png) | ![](assets/images/6.png) | ![](assets/images/7.png) |
 | Browser Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) | ![](assets/images/2.png) |
-| Mobile Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) | ![](assets/images/1.png) |
+| Hybrid Compatibility | ![](assets/images/5.png) | ![](assets/images/4.png) | ![](assets/images/3.png) |
 | PWAs support | ![](assets/images/2.png) | ![](assets/images/7.png) | ![](assets/images/9.png) |
 | ES5 | ![](assets/images/9.png) | ![](assets/images/4.png) | ![](assets/images/9.png) |
 | ES6 | ![](assets/images/4.png) | ![](assets/images/9.png) | ![](assets/images/3.png) |
@@ -29,6 +29,7 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | Stability | ![](assets/images/8.png) | ![](assets/images/2.png) | ![](assets/images/3.png) |
 | SEO Friendly | ![](assets/images/2.png) | ![](assets/images/8.png) | ![](assets/images/2.png) |
 
+\* It depends on where the programmer comes from, the curve will be longer or shorter.
 
 ## Qualification
 
@@ -54,7 +55,7 @@ This purpose of this article is compare Angular 1.5 and Angular2 Strengths and W
 | | SEO & Public visibility | Broad browser compatibility | SEO & Public visibility
 | | ES6 or Typescript | Lack of libraries & modules | ES6 or Typescript
 | | Component reutilization in other non angular projects | Component reutilization in other non angular projects | Hybrid apps
-| | Flexible to Future evolution | |
+| | Flexible to Future evolution | | Broad browser compatibility |
 | **Risks** |  |  |
 | | Future deprecation | Immature framework | In constant change |
 
