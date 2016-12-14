@@ -14,9 +14,47 @@ In BEM there are three pieces:
 ### Block
 Encapsulates a standalone entity that is meaningful on its own. While blocks can be nested and interact with each other, semantically they remain equal; there is no precedence or hierarchy. Holistic entities without DOM representation (such as controllers or models) can be blocks as well.
 
+```html
+HTML:
+
+<div class="block">...</div>
 ```
-  <div class="block">...</div>
+```css
+CSS:
+
+.block { color: #042; }
 ```
 
 ### Element
+Parts of a block and have no standalone meaning. Any element is semantically tied to its block.
+
+```html
+HTML:
+
+<div class="block">
+  ...
+  <span class="block__elem">...</span>
+</div>
+```
+```css
+CSS:
+
+.block__elem { color: #042; }
+```
+
 ### Modifier
+Flags on blocks or elements. Use them to change appearance, behavior or state.
+
+```html
+HTML:
+
+<div class="block block--mod">
+  ...
+	<div class="block__element--mod">...</div>
+</div>
+```
+```css
+CSS:
+
+.block__elem--mod { }
+```
