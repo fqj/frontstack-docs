@@ -1,23 +1,29 @@
 # Flujo de trabajo con git-flow
 
 ## Metodología
-La forma en la que vamos a trabajar se va a basar en la metodología git-flow. Para esta metodología, vamos a disponer permanentemente de dos ramas:
+La forma en la que vamos a trabajar se basa en la metodología `git-flow, modelo propuesto originalmente por Vincent Driessen ([A successfull Git branching model](http://nvie.com/git-model))
 
-- master: rama donde vamos a tener las versiones estables del producto, que serán las que liberemos. Siempre se va a aconsejar el uso de la última versión de esta rama a los usuarios. Esta rama tendrá su tag para indicar el número de versión al que corresponda.
 
-- develop: rama donde se van a hacer o mergear los desarrollos, así como donde se van a corregir los bugs que vayan saliendo en el producto.
+En resumen el modelo basa en la existencia permamente de dos ramas:
 
-Además de estas dos ramas, también tendremos ramas temporales para el desarrollo de las features así como la solución de hotfix que se tengan que liberar antes de sacar una versión oficial.
+- *`master`*: rama donde van a residir las versiones estables del producto, serán las que se liberen a producción. En principio cada commit de esta rama deberá llevar su tag correspondiente de número de versión. **SOBRE ESTA RAMA NO SE DEBE HACER UN COMMIT DIRECTO NUNCA**, solo debe recibir merges desde ramas inferiores.
 
-- feature/nombre_rama_feature: se va a crear una rama por cada feature que se lleve a cabo. Esta saldrá de la rama develop y, cuando se termine el desarrollo, se va a mergear con la rama develop también.
+- *`develop`*: rama de desarrollo, aquí residirá todo el código que se va generando mergeado desde las ramas features, **al igual que master sobre esta rama no se debe hacer un commit directo nunca**.
 
-- hotfix/nombre_rama_hotfix: se crea a partir de la rama master. Se va a solucionar el bug que se encuentre en la rama estable (master) y que es necesario que salga ya en la versión estable del producto. Una vez hecho el arreglo se va a mergear a la rama master y a la rama develop, para tenerlo en futuras versiones.
+Además de estas dos ramas, también tendremos ramas temporales:
 
-- issue_numeroIssue: su funcionamiento será el mismo que el de la rama hotfix salvo que el desarrollo se realiza debido a algún issue que se haya abierto en el repositorio contra la versión master y es necesario liberar en master sin esperar a la siguiente versión.
+- *`feature/nombre_rama_feature`*: Son ramas que deberán contener el bloque de una funcionalidad específica. Se deben crear a partir de la rama *develop* y morir al integrarse de vuelta en la misma.
 
-Realmente, la única diferencia que habrá entre estas ramas es el origen de las mismas. Para los desarrollos de las features se sacará la rama desde develop mientras que para los bugs e issues que sean necesarios liberar antes de generar una nueva versión se sacará de la rama master.
+- *`hotfix/nombre_rama_hotfix`*: Se crean a partir de la rama master. Son ramas inmediatas que se crean para solucionar bugs críticos en el código ya liberado. 
+  Al terminar se integran de vuelta a *master* directamente y se hacen descender los cambios también hacia *develop* para incorporar
+  el nuevo código al desarrollo en proceso. *La única excepción de esta regla es que cuando exista rama release los cambios deben mergearse hacia release y no hacia develop*. Una vez completado el ciclo la rama muere o queda
+  congelada, por lo que si en el futuro es necesario integrar otro grupo de fixes será necesario crear otra rama hotfix.
 
-Cada vez que se quiera liberar una nueva versión estable del producto se hará un merge a master desde la rama develop, para tener los nuevos desarrollos disponibles. Además, se creará el tag que corresponda. Con estos dos pasos ya tendríamos una versión estable en master lista para que los usuarios la puedan usar.
+- *`release/nombre_rama_release`*: Cuando se quiere liberar una nueva versión del producto, se crea una rama release candidate directamente desde *develop*. 
+  Una vez creada esta rama sobre ella no se incorpora ninguna funcionalidad nueva siendo cada commit orientado expresamente a la 
+  solución de errores para su estabilización y lanzamiento a *master*. Una vez estabilizada y pasados los tests correspondientes se mergean los cambios hacia 
+  *master* y se taggea con una nueva versión. Luego se mergean de vuelta a *develop* para integrar los fixes creados y se congela o muere la rama release.
+
 
 ## Ejemplo de uso
 Ahora, se va a explicar cual podría ser el flujo de trabajo para la siguiente situación: tenemos una versión estable en master (v_1.0). A su vez, tenemos que llevar a cabo dos desarrollos independientes. Además, nos vamos a dar cuenta que tenemos un bug reconocido (bug1), y nos han abierto una issue (issue_1). En el caso de la issue, será necesario que salga en la versión liberada en cuanto esté solucionado.
