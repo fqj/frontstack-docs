@@ -1,7 +1,7 @@
 # Flujo de trabajo con git-flow
 
 ## Metodología
-La forma en la que vamos a trabajar se basa en la metodología `git-flow, modelo propuesto originalmente por Vincent Driessen ([A successfull Git branching model](http://nvie.com/git-model))
+La forma en la que vamos a trabajar se basa en la metodología `git-flow, modelo propuesto originalmente por Vincent Driessen: ["A successfull Git branching model"](http://nvie.com/git-model)
 
 
 En resumen el modelo basa en la existencia permamente de dos ramas:
@@ -40,13 +40,41 @@ descritos anteriormente: [https://github.com/nvie/gitflow](https://github.com/nv
 
 Algunos comandos para la creación y finalización de features y hotfixes:
 
-- Features:
-    - git flow feature start nombre_de_feature: Al iniciar una funcionalidad. Nos crea la rama y nos posiciona en ella.
-    - git flow feature finish nombre_de_feature: Ya hemos hecho todos los commits en la feature y hemos terminado el desarrollo. Con este comando nos fusiona la rama con develop, borra la rama y cambiamos a develop.
-    - git flow feature checkout nombre_de_feature: Volver a la rama de una feature para seguir desarrollando en ella.
+##### Features:
+```
+// Al iniciar una funcionalidad. Nos crea la rama y nos posiciona en ella.
 
-- HotFix:
-    - git flow hotfix start nombre_hotfix: Se crea la rama a partir de master para comenzar a desarrollar el hotfix.
-    - git flow hotfix finish nombre_hotfix: Se ha terminado de solucionar el error. Esto fusiona los cambios tanto a develop como a master.
+$ git flow feature start nombre_de_feature
+```
+ 
+ 
+```
+// Ya hemos hecho todos los commits en la feature y hemos terminado el desarrollo. Con este 
+comando nos fusiona la rama con develop, borra la rama y cambiamos a develop.
+
+$ git flow feature finish nombre_de_feature
+```
+    
+```
+// volver a la rama de una feature para seguir desarrollando en ella.
+
+git flow feature checkout nombre_de_feature
+```
+
+
+##### HotFix:
+
+```
+// Se crea la rama a partir de master para comenzar a desarrollar el hotfix.
+
+git flow hotfix start nombre_hotfix
+```
+
+
+```
+// Se ha terminado de solucionar el error. Esto fusiona los cambios tanto a develop como a master.
+
+git flow hotfix finish nombre_hotfix
+``` 
 
 [(fuente y documentación original)]([https://github.com/nvie/gitflow](https://github.com/nvie/gitflow))
