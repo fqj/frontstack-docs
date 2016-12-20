@@ -1,11 +1,11 @@
 # CSS conventions
 
-## CSS3 features
+## Sass and CSS features
 
 #### Properties
 CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document.
 
-##### [CSS]
+##### [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
  They are set using custom property notation and are accessed using the var() function.
 
  ```css
@@ -13,14 +13,12 @@ CSS Variables are entities defined by CSS authors which contain specific values 
    --primary-color: #333;
 
    body {
-     font: 100% var(font-stack;
-     color: $primary-color;
+     font: 100% var(--font-stack);
+     color: var(--primary-color);
    }
  ```
 
-[CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables
-
-##### [Sass]
+##### [Sass](http://sass-lang.com/guide#topic-2)
 ```scss
   $font-stack:    Helvetica, sans-serif;
   $primary-color: #333;
@@ -34,7 +32,7 @@ CSS Variables are entities defined by CSS authors which contain specific values 
 #### Mixins
 A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible. A good use of a mixin is for vendor prefixes.
 
-##### [CSS]
+##### [CSS](https://tabatkins.github.io/specs/css-apply-rule/)
 
 ```css
  --toolbar-theme: {
@@ -45,9 +43,8 @@ A mixin lets you make groups of CSS declarations that you want to reuse througho
 
  @apply --toolbar-theme;
 ```
-[CSS]: https://tabatkins.github.io/specs/css-apply-rule/
 
-##### [SASS]
+##### [SASS](http://sass-lang.com/guide#topic-6)
 
 ```scss
   @mixin border-radius($radius) {
@@ -59,11 +56,33 @@ A mixin lets you make groups of CSS declarations that you want to reuse througho
 
   .box { @include border-radius(10px); }
 ```
-[SASS]:http://sass-lang.com/guide#topic-6
 
-#### [@import]
-The [@import] CSS at-rule is used to import style rules from other style sheets.
-[@import]:https://developer.mozilla.org/en-US/docs/Web/CSS/@import
+#### Import
+CSS has an import option that lets you split your CSS into smaller, more maintainable portions.
+
+##### [SASS](http://sass-lang.com/guide#topic-5) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/@import)
+```scss
+// _reset.scss
+
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+```
+
+```scss
+// base.scss
+
+@import 'reset';
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+```
 
 #### [CSS Animations and Transitions]
 [CSS animations] make it possible to animate transitions from one CSS style configuration to another. Animations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation's style, as well as possible intermediate waypoints.
