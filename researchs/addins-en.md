@@ -26,12 +26,6 @@ This is a port of the Base 16 themes for TextMate/Sublime.
 
 https://marketplace.visualstudio.com/items?itemName=AndrsDC.base16-themes
 
-##### vscode-icons
-
-Icons for Visual Studio Code
-
-https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons
-
 #### Console
 
 ##### Terminal
