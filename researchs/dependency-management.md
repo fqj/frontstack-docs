@@ -52,8 +52,8 @@ An example of "package.json" could be this:
 
 ```
 
-[Gulp]:(https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-[NPM]:(https://www.npmjs.com/)
+[Gulp]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+[NPM]: https://www.npmjs.com/
 
 ## [Yarn](https://yarnpkg.com/)
 
