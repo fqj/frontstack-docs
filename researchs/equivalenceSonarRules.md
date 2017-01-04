@@ -1,5 +1,5 @@
 
-# Reglas existentes tanto en eslint como en tslint
+# Rules availables in eslint and tslint
 
 |SONAR|TSLINT|ESLINT|
 |---|---|---|
@@ -29,7 +29,7 @@
 |S1442|ban|no-alert|
 |S104|max-file-line-count|max-lines|
 
-# Reglas existentes en eslint pero no disponibles actualmente en tslint
+# Rules availables in eslint but currently unavailables in tslint
 
 |SONAR|ESLINT|
 |---|---|
@@ -45,7 +45,7 @@
 |NestedIfDepth|max-depth|
 
 
-# Reglas existentes en eslint pero no aplicables a Typescript
+# Rules availables in eslint but not applicable to Typescript.
 
 |SONAR|ESLINT|
 |---|---|
@@ -56,7 +56,7 @@
 |StrictMode|strict|
 |UnusedVariable|no-unused-vars [Deprecated]|
 
-# Reglas que no existen ni en tslint ni en eslint
+# Rules not available neither in tslint nor eslint
 
 |SONAR|Descripción|
 |---|---|
@@ -80,14 +80,14 @@
 |S1219|"switch" statements should not contain non-case labels|
 |S1067|Expressions should not be too complex|
 
-## Enlaces
+## Links
 
-Fuentes:
-- [Reglas Sonar](http://grepcode.com/file/repo1.maven.org/maven2/org.codehaus.sonar-plugins.javascript/javascript-checks/1.2/org/sonar/l10n/javascript/rules/javascript/WithStatement.html?av=f)
-- [Repositorio reglas Sonar](https://github.com/SonarSource/sonar-javascript/tree/master/javascript-checks/src/main/resources/org/sonar/l10n/javascript/rules/javascript)
-- [Reglas TSLint](https://palantir.github.io/tslint/rules/)
-- [Reglas ESLint](http://eslint.org/docs/rules/)
+Sources:
+- [Sonar Rules](http://grepcode.com/file/repo1.maven.org/maven2/org.codehaus.sonar-plugins.javascript/javascript-checks/1.2/org/sonar/l10n/javascript/rules/javascript/WithStatement.html?av=f)
+- [Sonar Rules Repository](https://github.com/SonarSource/sonar-javascript/tree/master/javascript-checks/src/main/resources/org/sonar/l10n/javascript/rules/javascript)
+- [TSLint rules](https://palantir.github.io/tslint/rules/)
+- [ESLint rules](http://eslint.org/docs/rules/)
 
-Comparación/Equivalencia reglas TSLint - ESLint:
-- [tslint-eslint-rules GitHub](https://github.com/buzinas/tslint-eslint-rules)
-- [tslint-eslint-rules npm](https://www.npmjs.com/package/tslint-eslint-rules)
+tslint-eslint-rules:
+- [ESLint rules for TSLints - GitHub](https://github.com/buzinas/tslint-eslint-rules)
+- [ESLint rules for TSLint - npm](https://www.npmjs.com/package/tslint-eslint-rules)
