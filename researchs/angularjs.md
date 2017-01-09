@@ -203,34 +203,34 @@ AngularJS is a stable and powerful framework to built medium and scalable applic
 
 # Table
 
-| low |  |  |  | medium |  |  |  | High |
+| low |  | medium |   | High |
 |---|---|---|---|---|---|---|---|---|
-| ![](assets/images/1.png) | ![](assets/images/2.png)  | ![](assets/images/3.png) | ![](assets/images/4.png) |  ![](assets/images/5.png)    | ![](assets/images/6.png) | ![](assets/images/7.png) | ![](assets/images/8.png) | ![](assets/images/9.png) |
+| ![](assets/images/1.png) | ![](assets/images/2.png)  | ![](assets/images/3.png) | ![](assets/images/4.png) |  ![](assets/images/5.png)    | ![](assets/images/6.png) |
 
 | Category | Score |
 |----------|-------|
-| Community | ![](assets/images/9.png) |
-| Learning curve | ![](assets/images/4.png) |
-| Performance | ![](assets/images/4.png) |
-| Browser Compatibility | ![](assets/images/5.png) |
-| Mobile Compatibility | ![](assets/images/5.png) |
-| ES5 | ![](assets/images/9.png) |
-| ES6 | ![](assets/images/4.png) |
+| Community | ![](assets/images/5.png) |
+| Learning curve | ![](assets/images/3.png) |
+| Performance | ![](assets/images/3.png) |
+| Browser Compatibility | ![](assets/images/3.png) |
+| Mobile Compatibility | ![](assets/images/3.png) |
+| ES5 | ![](assets/images/5.png) |
+| ES6 | ![](assets/images/3.png) |
 | Web components | ![](assets/images/1.png) |
-| Reuse components | ![](assets/images/7.png) |
-| Security | ![](assets/images/7.png) |
-| Time on market | ![](assets/images/7.png) |
-| Scalability | ![](assets/images/7.png) |
-| Knowledge needed | ![](assets/images/6.png) |
-| Development speed | ![](assets/images/8.png) |
-| Modules and libraries | ![](assets/images/8.png) |
-| Stability | ![](assets/images/8.png) |
+| Reuse components | ![](assets/images/4.png) |
+| Security | ![](assets/images/4.png) |
+| Time on market | ![](assets/images/4.png) |
+| Scalability | ![](assets/images/4.png) |
+| Knowledge needed | ![](assets/images/4.png) |
+| Development speed | ![](assets/images/5.png) |
+| Modules and libraries | ![](assets/images/5.png) |
+| Stability | ![](assets/images/5.png) |
 | SEO | ![](assets/images/2.png) |
 
 
 ## Qualification
 
-| **AngularJS 1.5+** | Qualification | ![](assets/images/6.png) |
+| **AngularJS 1.5+** | Qualification | ![](assets/images/4.png) |
 |----|------|-----|
 
 > This research has been documented by the resources mentioned above on this document and the FrontStack team can't make test to verify the fully complexity of AngularJS and it is based on our own experience.
