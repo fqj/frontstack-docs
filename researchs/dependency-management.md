@@ -55,6 +55,32 @@ An example of "package.json" could be this:
 [Gulp]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
 [NPM]: https://www.npmjs.com/
 
+### Most used commands
+
+#### `npm install <name>@<version> --save-dev`
+This command installs a package, and any packages that it depends on and package will appear in your devDependencies. If the package has a shrinkwrap file, the installation of dependencies will be driven by that. See [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap)
+
+#### `npm install <name>@<version> -g`
+This command installs a global package.
+
+#### `npm install <name>@<version> -g`
+This command installs a global package.
+
+#### `npm update`
+This command will update all the packages listed to the latest version (specified by the tag config), respecting semver.
+
+#### `npm update -g`
+`npm update -g` will apply the update action to each globally installed package that is outdated
+
+#### `npm run`
+This runs an arbitrary command from a package's "**scripts**" object. If no "**command**" is provided, it will list the available scripts. **run[-script]** is used by the test, start, restart, and stop commands, but can be called directly, as well. When the scripts in the package are printed out, they're separated into lifecycle (test, start, restart) and directly-run scripts.
+
+#### `npm uninstall <name>@<version>`
+This uninstalls a package, completely removing everything npm installed on its behalf.
+
+#### `npm uninstall <name>@<version> -g`
+In global mode (ie, with -g or --global appended to the command), it uninstalls the current package context as a global package.
+
 ## [Yarn](https://yarnpkg.com/)
 
 Yarn caches every package it downloads so it never needs to download it again. It also parallelizes operations to maximize resource utilization so install times are faster than ever.
