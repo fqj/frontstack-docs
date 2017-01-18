@@ -112,3 +112,193 @@ releases. Test all the critical functionality in your app: The stuff that most u
 session.
 
 Smoke tests are not the only use for functional tests, but in my opinion, they’re the most valuable.
+
+
+## Testing in Angular 2
+
+
+### Testing a component
+
+First of all we need to import all the tools we will use:
+
+```
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+```
+
+then the component to be tested itself:
+
+```
+import { StnSideMenuComponent } from "./components/sample.component";
+```
+
+The `TestBed` is the first and most important of the Angular testing utilities. It creates an Angular testing module — an @NgModule class — that you
+configure with the configureTestingModule method to produce the module environment for the class you want to test. 
+
+Call configureTestingModule within a BeforeEach so that, before each spec runs, the TestBed can reset itself to a base state. The base state 
+includes a default testing module configuration consisting of the declarables (components, directives, and pipes) and providers (some of them mocked) 
+that almost everyone needs.
+
+Lets proceed with the test:
+
+```
+describe('component test suite', () => {
+
+  let comp:    MySampleComponent;
+  let fixture: ComponentFixture<MySampleComponent>;
+  let de:      DebugElement;
+  let el:      HTMLElement;
+
+  // provide our implementations or mock-data to the dependency injector
+  beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [StnSideMenuComponent], // declare the test component
+    });
+
+    fixture = TestBed.createComponent(StnSideMenuComponent);
+    comp = fixture.componentInstance;
+
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    // Or queryAll
+    el = de.nativeElement;
+    
+  }); 
+  
+});  
+```
+    
+  The createComponent` method returns a ComponentFixture, a handle on the test environment surrounding the created component. 
+  The fixture provides access to the component instance itself and to the DebugElement which is a handle on the component's 
+  DOM element. **It also closes the current TestBed instance to further configuration**.
+  ``
+   > Do not re-configure the TestBed after calling createComponent.
+  
+  The query method takes a predicate function and searches the fixture's entire DOM tree for the first element that satisfies 
+  the predicate. The result is a different DebugElement, one associated with the matching DOM element
+  
+  The `By` class is a class for producing predicates, a predicate A predicate is a function that returns a boolean. A query predicate 
+  receives a DebugElement and returns true if the element meets the selection criteria.
+ 
+  Finally, the setup assigns the DOM element from the DebugElement nativeElement property to el. The tests will assert 
+  that el contains the expected title text:
+  
+```
+  it('should display original title', () => {
+    fixture.detectChanges();
+    expect(el.textContent).toContain(comp.title);
+  });
+  
+  it('should display a different test title', () => {
+    comp.title = 'Test Title';
+    fixture.detectChanges();
+    expect(el.textContent).toContain('Test Title');
+  });
+  
+```
+
+These tests ask the DebugElement for the native HTML element to satisfy their expectations. The full tests finally looks like this:
+
+```
+describe('component test suite', () => {
+
+  let comp:    MySampleComponent;
+  let fixture: ComponentFixture<MySampleComponent>;
+  let de:      DebugElement;
+  let el:      HTMLElement;
+
+  // provide our implementations or mock-data to the dependency injector
+  beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [StnSideMenuComponent], // declare the test component
+    });
+
+    fixture = TestBed.createComponent(StnSideMenuComponent);
+    comp = fixture.componentInstance;
+
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    // Or queryAll
+    el = de.nativeElement;
+    
+  }); 
+  
+  it('should display original title', () => {
+     fixture.detectChanges();
+     expect(el.textContent).toContain(comp.title);
+  });
+    
+  it('should display a different test title', () => {
+     comp.title = 'Test Title';
+     fixture.detectChanges();
+     expect(el.textContent).toContain('Test Title');
+  });
+  
+});  
+```
+
+> The TestBed.createComponent() does not trigger change detection.
+ 
+In production environment angular detects changes automatically, in testing environment we have to explicitly call ```detectChanges()``` 
+to tell angular that something has changed so it should trigger the change detection process.
+   
+There are some cases where a component has an external template specified by its parameter `templateUrl`. Those cases are a problem 
+for testing because the framework has to fetch external files which by nature involves asynchronous methods. The previous test won`t work under that
+circumstances.
+   
+So what can we do?? Well, there exist the `async` function for that purpose, lets proceed first importing it:
+ 
+```
+import { async } from '@angular/core/testing';
+```
+ 
+The test setup for MySampleComponent must give the Angular template compiler time to read the files. Starting from were we left off,
+the logic would be to split the setup into two beforeEach calls. The first beforeEach handles asynchronous compilation, and the second one
+proceeds as usual:
+
+ ```
+  // async beforeEach
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [ MySampleComponent ], // declare the test component
+    })
+    .compileComponents();  // compile template and css
+    
+  }));
+  
+  // synchronous beforeEach
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MySampleComponent);
+  
+    comp = fixture.componentInstance; // MySampleComponent test instance
+  
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    el = de.nativeElement;
+  });
+  
+ ```
+ 
+And YES, we could only use `async().then() ` on the first one but for readability reasons it is recommended to
+split it between two forEach(s). Don't worry, the second one will get executed only after the first (the async one) has finished. 
+
+As we said before the `TestBed.configureTestingModule` method returns the TestBed class so you can chain calls to other TestBed 
+static methods such as the above `compileComponents()`. 
+
+> The compileComponents() method asynchronously compiles all the components configured in the testing module.
+
+> Calling compileComponents closes the current TestBed instance for further configuration. 
+Make compileComponents the last step before calling TestBed.createComponent to instantiate the component-under-test.
+
+When `compileComponents` completes, the external templates and css files have been "inlined" and `TestBed.createComponent` can create 
+new instances of MySampleComponent synchronously.
+
+
+### Test a component with a dependency
+
+Components often have service dependencies. Let suppose that our MySampleComponent depends on a external UserService for retrieving
+user information:
