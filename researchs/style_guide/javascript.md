@@ -18,11 +18,13 @@ Se debe indentar con 4 espacios (no tabulaciones).
 Para nuestros proyectos, siempre debes asignar variables en una nueva línea, no separado por comas:
 
 // Malo
+
 var a = 1,
     b = 2,
     c = 3;
 
 // Bueno
+
 var a = 1;
 var b = 2;
 var c = 3;
@@ -33,9 +35,11 @@ Igualmente, usa {} para crear nuevos objetos.
 A continuación se presentan dos escenarios para el uso de [], uno puede estar en una sola línea, el otro no tanto:
 
 // Bien en una sola línea
+
 var stuff = [1, 2, 3];
 
 // Nunca en una sola línea
+
 var longerStuff = [
     'some longer stuff',
     'other longer stuff'
@@ -56,19 +60,23 @@ No porque la inserción automática de puntos y comas (ASI) sea magia negra, haz
 
 ## Condicionales y bucles
 // Malo
+
 if (something) doStuff()
 
 // Bueno
+
 if (something) {
     doStuff();
 }
 ## Espacios después de una palabra clave y antes del corchete
 // Malo
+
 if(bad){
 
 }
 
 // Bueno
+
 if (something) {
 
 }
@@ -113,9 +121,11 @@ Trata de no utilizarlos.
 Si un ternario usa varias líneas, no lo uses:
 
 // Malo
+
 var foo = (user.lastLogin > new Date().getTime() - 16000) ? user.lastLogin - 24000 : 'wut';
 
 // Bueno
+
 return user.isLoggedIn ? 'yay' : 'boo';
 ## Buenas prácticas generales
 Si te das cuenta que estás repitiendo algo que puede ser una constante, usa una sola definición de constante al comienzo del archivo.
@@ -124,10 +134,12 @@ Define las expresiones regulares como constantes siempre.
 
 Siempre debes probar la certidumbre:
 
-// malo
+// Malo
+
 if (blah !== false) { ...
 
 // Bueno
+
 if (blah) { ...
 Si el código es demasiado largo, trata de romperlo en varias líneas o refactoriza. Trata de mantenerte dentro del límite de 80 columnas por línea, pero si te pasas un poco no es un gran problema. Cuando rompas una línea, indenta las subsiguientes un nivel (2 espacios)
 
