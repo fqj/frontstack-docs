@@ -24,31 +24,6 @@
     - <strong>Tested</strong>: The component has to be tested and has at least 60% of coverage in his unit test.
     - <strong>Documented</strong>: The component has to be a complete documentation, generated with the current conventions, in order to be easy to be used by the developers, presenting inputs/properties, available methods and personalization style rules.
 
-## Angular 2 
-
-Working with Angular 2, you should export all needed modules in order to import them from the Angular main App. Working with the starter kit, the webpack configuration should be able to Tree Shake your files and takes only the necessary for the build.
-
- * Name your component file with . as type separator by functionality. header.component.ts. 
- * Define one component per file.
- * Do use upper camel case for class names.
- * Do use a custom prefix for a component selector. If the project is "Santander", you can use stn-header as component selector.
- * Do use upper camel case when naming classes.
- * Do declare variables with const if their values should not change during the application lifetime.
- * Do use lower camel case to name properties and methods.
- * Do name the file such that you instantly know what it contains and represents.
- * Do use dashed-case or kebab-case for naming the element selectors of components.
- * Do define components as elements via the selector.selector: 'stn-hero-button' should have class HeroButtonComponent  
- * Define as @Input every property to has be defined by the parent.
- * Do limit logic in a component to only that required for the view. All other logic should be delegated to services.
- * Do name events without the prefix on.
- * Do put presentation logic in the component class, and not in the template.
- * Do use attribute directives when you have presentation logic without a template.
- * Do implement the lifecycle hook interfaces.
- 
-You can read the full [Angular guidelines](https://angular.io/styleguide) for more reference.
-
-Those rules should be validated with codelyzer and every component that no follows the rules should be rejected.
-
 ## Polymer
 
 Working with Polymer, you should be sure of upload the HTML file with the necessary resources to be completely functional without precompiling with Babel, SaSS or whatever tool that you could be using with this library.

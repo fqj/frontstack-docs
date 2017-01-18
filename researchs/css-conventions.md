@@ -1,6 +1,6 @@
 # CSS conventions
 
-## Sass and CSS features
+## CSS features
 
 #### Properties
 CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document.
@@ -18,17 +18,6 @@ CSS Variables are entities defined by CSS authors which contain specific values 
    }
  ```
 
-##### [Sass](http://sass-lang.com/guide#topic-2)
-```scss
-  $font-stack:    Helvetica, sans-serif;
-  $primary-color: #333;
-
-  body {
-    font: 100% $font-stack;
-    color: $primary-color;
-  }
-```
-
 #### Mixins
 A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mixin more flexible. A good use of a mixin is for vendor prefixes.
 
@@ -44,25 +33,12 @@ A mixin lets you make groups of CSS declarations that you want to reuse througho
  @apply --toolbar-theme;
 ```
 
-##### [SASS](http://sass-lang.com/guide#topic-6)
-
-```scss
-  @mixin border-radius($radius) {
-   -webkit-border-radius: $radius;
-      -moz-border-radius: $radius;
-       -ms-border-radius: $radius;
-           border-radius: $radius;
-  }
-
-  .box { @include border-radius(10px); }
-```
-
 #### Import
 CSS has an import option that lets you split your CSS into smaller, more maintainable portions.
 
-##### [SASS](http://sass-lang.com/guide#topic-5) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/@import)
-```scss
-// _reset.scss
+[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/@import)
+```css
+// _reset.css
 
 html,
 body,
@@ -73,8 +49,8 @@ ol {
 }
 ```
 
-```scss
-// base.scss
+```css
+// base.css
 
 @import 'reset';
 
@@ -86,6 +62,7 @@ body {
 
 #### [CSS Animations and Transitions]
 [CSS animations] make it possible to animate transitions from one CSS style configuration to another. Animations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation's style, as well as possible intermediate waypoints.
+
 [CSS animations]:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
 [CSS Animations and Transitions]:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
 
