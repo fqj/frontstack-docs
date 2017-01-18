@@ -301,4 +301,150 @@ new instances of MySampleComponent synchronously.
 ### Test a component with a dependency
 
 Components often have service dependencies. Let suppose that our MySampleComponent depends on a external UserService for retrieving
-user information:
+user information and the method worth testing, so in our TestBed: 
+
+```
+TestBed.configureTestingModule({
+   declarations: [ MySampleComponent ],
+// providers:    [ UserService ]  // NO! Don't provide the real service!
+                                  // Provide a test-double instead
+   providers:    [ {provide: UserService, useValue: userServiceStub } ]
+});
+```
+
+A component-under-test doesn't have to be injected with real services. In fact, it is usually better if they are 
+test doubles (stubs, fakes, spies, or mocks). The purpose of the spec is to test the component, not the service, and real services
+can be trouble. 
+
+Declaring our provider we tell the TestBed to use our stub instead of the real UserService wherever it gets called.
+
+```
+userServiceStub = {
+  isLoggedIn: true,
+  user: { name: 'Test User'}
+};
+```
+
+Angular has a hierarchical injection system, so you have an injector on every level. If you want to get a reference of what is actually
+injected into the component you can get it from the injector of the component under test:
+
+```
+// UserService actually injected into the component
+userService = fixture.debugElement.injector.get(UserService);
+```
+
+> The component injector is a property of the fixture's DebugElement.
+
+Or directly from the module root injector:
+
+```
+// UserService from the root injector
+userService = TestBed.get(UserService);
+```
+
+**Important:** The userService instance injected into the component is a completely different object than the declared on the test
+, instead it's a clone of the provided userServiceStub. So changing the source stub once injected does not affect the service behaviour
+or state on the component.
+
+```
+ beforeEach(() => {
+ 
+    // stub UserService for test purposes
+    userServiceStub = {
+      isLoggedIn: true,
+      user: { name: 'Test User'}
+    };
+
+    TestBed.configureTestingModule({
+       declarations: [ MySampleComponent ],
+       providers:    [ {provide: UserService, useValue: userServiceStub } ]
+    });
+
+    fixture = TestBed.createComponent(MySampleComponent);
+    comp    = fixture.componentInstance;
+
+    // UserService from the root injector
+    userService = TestBed.get(UserService);
+
+    //  get the "welcome" element by CSS selector (e.g., by class name)
+    de = fixture.debugElement.query(By.css('.welcome'));
+    el = de.nativeElement;
+    
+ });
+ 
+ it('should welcome the user', () => {
+ 
+   fixture.detectChanges();
+   const content = el.textContent;
+   expect(content).toContain('Welcome', '"Welcome ..."');
+   expect(content).toContain('Test User', 'expected name');
+   
+ });
+ 
+ it('should welcome "Bubba"', () => {
+ 
+   userService.user.name = 'Bubba'; // welcome message hasn't been shown yet
+   fixture.detectChanges();
+   expect(el.textContent).toContain('Bubba');
+   
+ });
+```
+
+### Testing a component with an real asynchronous service
+ 
+When you want to test component who expects asynchronous responses from a service you could use a Spy: 
+ 
+```javascript
+beforeEach(() => {
+    TestBed.configureTestingModule({
+       declarations: [ TwainComponent ],
+       providers:    [ TwainService ],
+    });
+
+    fixture = TestBed.createComponent(TwainComponent);
+    comp    = fixture.componentInstance;
+
+    // TwainService actually injected into the component
+    twainService = fixture.debugElement.injector.get(TwainService);
+
+    // Setup spy on the `getQuote` method
+    spy = spyOn(twainService, 'getQuote')
+          .and.returnValue(Promise.resolve(testQuote));
+
+    // Get the Twain quote element by CSS selector (e.g., by class name)
+    de = fixture.debugElement.query(By.css('.twain'));
+    el = de.nativeElement;
+    
+  });
+
+  it('should not show quote before OnInit', () => {
+    expect(el.textContent).toBe('', 'nothing displayed');
+    expect(spy.calls.any()).toBe(false, 'getQuote not yet called');
+  });
+```  
+
+The spy is designed such that any call to getQuote receives an immediately resolved promise with a test quote. The spy bypasses 
+the actual getQuote method and therefore will not contact the server.
+  
+### The asynchronous it  
+
+Even when in the previous case the service responses with a resolved promise immediately, we can merely check if the function has been
+called but not for the value that has been resolved. For that scenario we need to wait for the value to become available when the 
+javascript engine has done the full turn. We can use the same 'async()' function from above in the 'it' implementation:
+
+``` 
+it('should show quote after getQuote promise (async)', async(() => {
+  fixture.detectChanges();
+
+  fixture.whenStable().then(() => { // wait for async getQuote
+    fixture.detectChanges();        // update view with quote
+    expect(el.textContent).toBe(testQuote);
+  });
+}));
+``` 
+
+This test has no direct access to the promise returned by the call to twainService.getQuote because it is buried inside 
+TwainComponent.ngOnInit and therefore inaccessible to a test that probes only the component API surface.
+
+The `ComponentFixture.whenStable()` method returns its own promise which resolves when the getQuote promise completes. In fact,
+the whenStable promise resolves when all pending asynchronous activities within this test complete ... the definition of "stable".
