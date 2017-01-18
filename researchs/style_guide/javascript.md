@@ -1,17 +1,17 @@
 # Javascript
 ## Formato de Nombres de Variables
 // Clases: PalabrasCapitalizadas
+
 var MyClass = ...
 
 // Variables y funciones: camelCase
+
 var myVariable = ...
 
 // Constantes: MAYUSCULAS_CON_GUIONES_BAJOS
-// Backend
+
 const MY_CONST = ...
 
-// Del lado del cliente
-var MY_CONST = ...
 ## Indentación
 Se debe indentar con 4 espacios (no tabulaciones).
 
