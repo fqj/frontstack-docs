@@ -1,146 +1,150 @@
 # Javascript
-## Formato de Nombres de Variables
-// Clases: PalabrasCapitalizadas
+## Format of Variables Names
+// Class: WordCapitalize
 
 var MyClass = ...
 
-// Variables y funciones: camelCase
+// Variables and functions: camelCase
 
 var myVariable = ...
 
-// Constantes: MAYUSCULAS_CON_GUIONES_BAJOS
+// Constants: UPPERCASE_WITH_UNDERSCODE
 
 const MY_CONST = ...
 
-## Indentación
-Se debe indentar con 4 espacios (no tabulaciones).
+## Indent
+Indent with 2 spaces (not tabulations).
 
-Para nuestros proyectos, siempre debes asignar variables en una nueva línea, no separado por comas:
+For our projects, you should always assign variables in a new line, not separated by commas:
 
-// Malo
+// Bad
 
 var a = 1,
     b = 2,
     c = 3;
 
-// Bueno
+// Good
 
 var a = 1;
 var b = 2;
 var c = 3;
-Usa [] para asignar un nuevo arreglo, no new Array().
+Use [] to assign a new Array, NO new Array().
 
-Igualmente, usa {} para crear nuevos objetos.
+Also, use {} to create new objects.
 
-A continuación se presentan dos escenarios para el uso de [], uno puede estar en una sola línea, el otro no tanto:
+Below are two scenarios for the use of [], one can be on a single line, the other not so much:
 
-// Bien en una sola línea
+// Good on a single line
 
 var stuff = [1, 2, 3];
 
-// Nunca en una sola línea
+// Never on a single line
 
 var longerStuff = [
     'some longer stuff',
     'other longer stuff'
 ];
-## Nunca asignes multiples variables en la misma línea
-Malo, malo:
+## Never assign multiple variables on the same line
+BAD bad
 
 var a = 1, b = 'foo', c = 'wtf';
-## NO alinees los nombres de variable
-Malo:
+
+## DO NOT align variable names
+Bad:
 
 var wut    = true;
 var boohoo = false;
-## Puntos y comas
-Úsalos.
 
-No porque la inserción automática de puntos y comas (ASI) sea magia negra, hazlo por consistencia.
+## semicolons<
+Use them.
 
-## Condicionales y bucles
-// Malo
+Not because the automatic insertion of semicolons (ASI) is black magic, do it for consistency.
+
+## Conditionals and loops
+// Bad
 
 if (something) doStuff()
 
-// Bueno
+// Good
 
 if (something) {
     doStuff();
 }
-## Espacios después de una palabra clave y antes del corchete
-// Malo
+## Spaces after a keyword and before the bracket
+// Bad
 
 if(bad){
 
 }
 
-// Bueno
+// Good
 
 if (something) {
 
 }
-# Funciones
-## Funciones con nombre
-Siempre usa funciones con nombre, inclusive si la estás asignando a otra variable o propiedad. Esto mejora las pilas de error cuando se hace depuración.
+# Functions
+## Functions with names
+Always use named functions, even if you are assigning it to another variable or property. This improves the error stacks when debugging is done.
 
-No coloques espacios entre el nombre de la función y el paréntesis inicial, pero si entre el paréntesis de cierre y el corchete inicial:
+Do not place spaces between the function name and the initial parenthesis, but if between the closing parenthesis and the initial square bracket:
 
 var method = function doSomething(argOne, argTwo) {
 
 }
-## Funciones anónimas
-Lo estás haciendo mal, lee sobre las funciones con nombre más arriba.
+## Anonymous Functions
+You're doing it wrong, read about the named functions above.
 
-## Operadores
-Siempre debes usar === con la única excepción de comparaciones con null y undefined.
+## Operators
+You should always use === with the only exception of comparisons with null and undefined.
+Example:
 
-Ejemplo:
 
 if (value != null) {
 
 }
-## Comillas
-Siempre usa comillas simples: 'no dobles'
+## Quotation marks
+Always use single quotes: 'no doubles'
 
-La única excepción: "no escapes comillas simples en las cadenas así: \'. Usa comillas dobles."
+The only exception: "Do not escape single quotation marks in strings like this: \ 'Use double quotes."
 
-## Comentarios
-Para funciones en node, provee siempre un comentario claro con el siguiente formato:
+## Comments
+For functions in node, always provide a clear comment with the following format:
 
-/* Explicación breve de lo que se hace
- * Expects: cualquier parámetro aceptado
- * Returns: cualquier cosa retornada
- */
-Si los comentarios son realmente largos, utiliza el formato /* ... */. De lo contrario, usa comentarios cortos como:
+/ * Brief explanation of what is done
+  * Expects: any parameter accepted
+  * Returns: anything returned
+  * /
+If the comments are really long, use the / * ... * / format. Otherwise, use short comments like:
 
-// Este es un comentario corto y termina con un punto.
-## Ternarios
-Trata de no utilizarlos.
+// This is a short comment and ends with a period.
 
-Si un ternario usa varias líneas, no lo uses:
+## Ternary Operatos
+Try not to use them.
 
-// Malo
+If a ternary uses several lines, do not use it:
+// Bad
 
 var foo = (user.lastLogin > new Date().getTime() - 16000) ? user.lastLogin - 24000 : 'wut';
 
 // Bueno
 
 return user.isLoggedIn ? 'yay' : 'boo';
-## Buenas prácticas generales
-Si te das cuenta que estás repitiendo algo que puede ser una constante, usa una sola definición de constante al comienzo del archivo.
 
-Define las expresiones regulares como constantes siempre.
+## Best Practices
+If you realize that you are repeating something that can be a constant, use a single constant definition at the beginning of the file.
 
-Siempre debes probar la certidumbre:
+Define regular expressions as constants at all times.
 
-// Malo
+You should always test for certainty:
+
+// Bad
 
 if (blah !== false) { ...
 
-// Bueno
+// Good
 
 if (blah) { ...
-Si el código es demasiado largo, trata de romperlo en varias líneas o refactoriza. Trata de mantenerte dentro del límite de 80 columnas por línea, pero si te pasas un poco no es un gran problema. Cuando rompas una línea, indenta las subsiguientes un nivel (2 espacios)
 
-Si el código luce demasiado inteligente, probablemente lo sea, así que solo manténlo sencillo.
+If the code is too long, try breaking it in several lines or refactor it. Try to stay within the limit of 80 columns per line, but if you spend a little is not a big problem. When you break a line, indent the subsequent one level (2 spaces)
+
+If the code looks too smart, it probably is, so just keep it simple.
