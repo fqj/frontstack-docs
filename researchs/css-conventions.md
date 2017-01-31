@@ -1,3 +1,5 @@
+Important: The content of this document is based on the Airbnb CSS Style Guide. 
+
 # CSS conventions
 
 ## CSS features
