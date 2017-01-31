@@ -112,3 +112,426 @@ releases. Test all the critical functionality in your app: The stuff that most u
 session.
 
 Smoke tests are not the only use for functional tests, but in my opinion, they’re the most valuable.
+
+
+## Unit Testing in Angular 2
+
+
+### Testing a component
+
+First of all we need to import all the tools we will use:
+
+```
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+```
+
+then the component to be tested itself:
+
+```
+import { StnSideMenuComponent } from "./components/sample.component";
+```
+
+The `TestBed` is the first and most important of the Angular testing utilities. It creates an Angular testing module — an @NgModule class — that you
+configure with the configureTestingModule method to produce the module environment for the class you want to test. 
+
+Call configureTestingModule within a BeforeEach so that, before each spec runs, the TestBed can reset itself to a base state. The base state 
+includes a default testing module configuration consisting of the declarables (components, directives, and pipes) and providers (some of them mocked) 
+that almost everyone needs.
+
+Lets proceed with the test:
+
+```
+describe('component test suite', () => {
+
+  let comp:    MySampleComponent;
+  let fixture: ComponentFixture<MySampleComponent>;
+  let de:      DebugElement;
+  let el:      HTMLElement;
+
+  // provide our implementations or mock-data to the dependency injector
+  beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [StnSideMenuComponent], // declare the test component
+    });
+
+    fixture = TestBed.createComponent(StnSideMenuComponent);
+    comp = fixture.componentInstance;
+
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    // Or queryAll
+    el = de.nativeElement;
+    
+  }); 
+  
+});  
+```
+    
+  The createComponent` method returns a ComponentFixture, a handle on the test environment surrounding the created component. 
+  The fixture provides access to the component instance itself and to the DebugElement which is a handle on the component's 
+  DOM element. **It also closes the current TestBed instance to further configuration**.
+  ``
+   > Do not re-configure the TestBed after calling createComponent.
+  
+  The query method takes a predicate function and searches the fixture's entire DOM tree for the first element that satisfies 
+  the predicate. The result is a different DebugElement, one associated with the matching DOM element
+  
+  The `By` class is a class for producing predicates, a predicate A predicate is a function that returns a boolean. A query predicate 
+  receives a DebugElement and returns true if the element meets the selection criteria.
+ 
+  Finally, the setup assigns the DOM element from the DebugElement nativeElement property to el. The tests will assert 
+  that el contains the expected title text:
+  
+```
+  it('should display original title', () => {
+    fixture.detectChanges();
+    expect(el.textContent).toContain(comp.title);
+  });
+  
+  it('should display a different test title', () => {
+    comp.title = 'Test Title';
+    fixture.detectChanges();
+    expect(el.textContent).toContain('Test Title');
+  });
+  
+```
+
+These tests ask the DebugElement for the native HTML element to satisfy their expectations. The full tests finally looks like this:
+
+```
+describe('component test suite', () => {
+
+  let comp:    MySampleComponent;
+  let fixture: ComponentFixture<MySampleComponent>;
+  let de:      DebugElement;
+  let el:      HTMLElement;
+
+  // provide our implementations or mock-data to the dependency injector
+  beforeEach(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [StnSideMenuComponent], // declare the test component
+    });
+
+    fixture = TestBed.createComponent(StnSideMenuComponent);
+    comp = fixture.componentInstance;
+
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    // Or queryAll
+    el = de.nativeElement;
+    
+  }); 
+  
+  it('should display original title', () => {
+     fixture.detectChanges();
+     expect(el.textContent).toContain(comp.title);
+  });
+    
+  it('should display a different test title', () => {
+     comp.title = 'Test Title';
+     fixture.detectChanges();
+     expect(el.textContent).toContain('Test Title');
+  });
+  
+});  
+```
+
+> The TestBed.createComponent() does not trigger change detection.
+ 
+In production environment angular detects changes automatically, in testing environment we have to explicitly call ```detectChanges()``` 
+to tell angular that something has changed so it should trigger the change detection process.
+   
+There are some cases where a component has an external template specified by its parameter `templateUrl`. Those cases are a problem 
+for testing because the framework has to fetch external files which by nature involves asynchronous methods. The previous test won`t work under that
+circumstances.
+   
+So what can we do?? Well, there exist the `async` function for that purpose, lets proceed first importing it:
+ 
+```
+import { async } from '@angular/core/testing';
+```
+ 
+The test setup for MySampleComponent must give the Angular template compiler time to read the files. Starting from were we left off,
+the logic would be to split the setup into two beforeEach calls. The first beforeEach handles asynchronous compilation, and the second one
+proceeds as usual:
+
+ ```
+  // async beforeEach
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [ MySampleComponent ], // declare the test component
+    })
+    .compileComponents();  // compile template and css
+    
+  }));
+  
+  // synchronous beforeEach
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MySampleComponent);
+  
+    comp = fixture.componentInstance; // MySampleComponent test instance
+  
+    // query for the title <h1> by CSS element selector
+    de = fixture.debugElement.query(By.css('h1'));
+    el = de.nativeElement;
+  });
+  
+ ```
+ 
+And YES, we could only use `async().then() ` on the first one but for readability reasons it is recommended to
+split it between two forEach(s). Don't worry, the second one will get executed only after the first (the async one) has finished. 
+
+As we said before the `TestBed.configureTestingModule` method returns the TestBed class so you can chain calls to other TestBed 
+static methods such as the above `compileComponents()`. 
+
+> The compileComponents() method asynchronously compiles all the components configured in the testing module.
+
+> Calling compileComponents closes the current TestBed instance for further configuration. 
+Make compileComponents the last step before calling TestBed.createComponent to instantiate the component-under-test.
+
+When `compileComponents` completes, the external templates and css files have been "inlined" and `TestBed.createComponent` can create 
+new instances of MySampleComponent synchronously.
+
+
+### Test a component with a dependency
+
+Components often have service dependencies. Let suppose that our MySampleComponent depends on a external UserService for retrieving
+user information and the method worth testing, so in our TestBed: 
+
+```
+TestBed.configureTestingModule({
+   declarations: [ MySampleComponent ],
+// providers:    [ UserService ]  // NO! Don't provide the real service!
+                                  // Provide a test-double instead
+   providers:    [ {provide: UserService, useValue: userServiceStub } ]
+});
+```
+
+A component-under-test doesn't have to be injected with real services. In fact, it is usually better if they are 
+test doubles (stubs, fakes, spies, or mocks). The purpose of the spec is to test the component, not the service, and real services
+can be trouble. 
+
+Declaring our provider we tell the TestBed to use our stub instead of the real UserService wherever it gets called.
+
+```
+userServiceStub = {
+  isLoggedIn: true,
+  user: { name: 'Test User'}
+};
+```
+
+Angular has a hierarchical injection system, so you have an injector on every level. If you want to get a reference of what is actually
+injected into the component you can get it from the injector of the component under test:
+
+```
+// UserService actually injected into the component
+userService = fixture.debugElement.injector.get(UserService);
+```
+
+> The component injector is a property of the fixture's DebugElement.
+
+Or directly from the module root injector:
+
+```
+// UserService from the root injector
+userService = TestBed.get(UserService);
+```
+
+**Important:** The userService instance injected into the component is a completely different object than the declared on the test
+, instead it's a clone of the provided userServiceStub. So changing the source stub once injected does not affect the service behaviour
+or state on the component.
+
+```javascript
+ beforeEach(() => {
+ 
+    // stub UserService for test purposes
+    userServiceStub = {
+      isLoggedIn: true,
+      user: { name: 'Test User'}
+    };
+
+    TestBed.configureTestingModule({
+       declarations: [ MySampleComponent ],
+       providers:    [ {provide: UserService, useValue: userServiceStub } ]
+    });
+
+    fixture = TestBed.createComponent(MySampleComponent);
+    comp    = fixture.componentInstance;
+
+    // UserService from the root injector
+    userService = TestBed.get(UserService);
+
+    //  get the "welcome" element by CSS selector (e.g., by class name)
+    de = fixture.debugElement.query(By.css('.welcome'));
+    el = de.nativeElement;
+    
+ });
+ 
+ it('should welcome the user', () => {
+ 
+   fixture.detectChanges();
+   const content = el.textContent;
+   expect(content).toContain('Welcome', '"Welcome ..."');
+   expect(content).toContain('Test User', 'expected name');
+   
+ });
+ 
+ it('should welcome "Bubba"', () => {
+ 
+   userService.user.name = 'Bubba'; // welcome message hasn't been shown yet
+   fixture.detectChanges();
+   expect(el.textContent).toContain('Bubba');
+   
+ });
+```
+
+### The inject function
+
+The inject function is one of the Angular testing utilities. It injects services into the test function where you can 
+alter, spy on, and manipulate them. It is the equivalent of the previous `TestBed.get(UserService)` but at function level.
+
+It uses the current TestBed injector and can only return services provided at that level. It does not return services from component
+providers.
+
+The inject function has two parameters:
+
+1. An array of Angular dependency injection tokens
+2. A test function whose parameters correspond exactly to each item in the injection token array
+
+ex:
+
+```typescript
+    it('should evaluate a service', inject([Router], (router: Router) => { 
+    
+      const spy = spyOn(router, 'navigateByUrl');
+    
+      heroClick(); // trigger click on first inner <div class="hero">
+    
+      // args passed to router.navigateByUrl()
+      const navArgs = spy.calls.first().args[0];
+    
+      // expecting to navigate to id of the component's first hero
+      const id = comp.heroes[0].id;
+      expect(navArgs).toBe('/heroes/' + id,
+        'should nav to HeroDetail for first hero');
+    }));
+```
+
+### Testing a component with an real asynchronous service
+ 
+When you want to test component who expects asynchronous responses from a service you could use a Spy: 
+ 
+```javascript
+beforeEach(() => {
+    TestBed.configureTestingModule({
+       declarations: [ TwainComponent ],
+       providers:    [ TwainService ],
+    });
+
+    fixture = TestBed.createComponent(TwainComponent);
+    comp    = fixture.componentInstance;
+
+    // TwainService actually injected into the component
+    twainService = fixture.debugElement.injector.get(TwainService);
+
+    // Setup spy on the `getQuote` method
+    spy = spyOn(twainService, 'getQuote')
+          .and.returnValue(Promise.resolve(testQuote));
+
+    // Get the Twain quote element by CSS selector (e.g., by class name)
+    de = fixture.debugElement.query(By.css('.twain'));
+    el = de.nativeElement;
+    
+  });
+
+  it('should not show quote before OnInit', () => {
+    expect(el.textContent).toBe('', 'nothing displayed');
+    expect(spy.calls.any()).toBe(false, 'getQuote not yet called');
+  });
+```  
+
+The spy is designed such that any call to getQuote receives an immediately resolved promise with a test quote. The spy bypasses 
+the actual getQuote method and therefore will not contact the server.
+  
+### The asynchronous it  
+
+Even when in the previous case the service responses with a resolved promise immediately, we can merely check if the function has been
+called but not for the value that has been resolved. For that scenario we need to wait for the value to become available when the 
+javascript engine has done the full turn. We can use the same 'async()' function from above in the 'it' implementation:
+
+```javascript
+it('should show quote after getQuote promise (async)', async(() => {
+  fixture.detectChanges();
+
+  fixture.whenStable().then(() => { // wait for async getQuote
+    fixture.detectChanges();        // update view with quote
+    expect(el.textContent).toBe(testQuote);
+  });
+}));
+``` 
+
+This test has no direct access to the promise returned by the call to twainService.getQuote because it is buried inside 
+TwainComponent.ngOnInit and therefore inaccessible to a test that probes only the component API surface.
+
+The `ComponentFixture.whenStable()` method returns its own promise which resolves when the getQuote promise completes. In fact,
+the whenStable promise resolves when all pending asynchronous activities within this test complete ... the definition of "stable".
+
+> it also exist the 'fakeAsync()' which it's a variant of async but provides more of a linear type reading (not covered here)
+
+Another way is to use the traditional `done()` callback of the 'it' function:
+
+```javascript
+it('should show quote after getQuote promise (done)', done => {
+  fixture.detectChanges();
+
+  // get the spy promise and wait for it to resolve
+  spy.calls.mostRecent().returnValue.then(() => {
+    fixture.detectChanges(); // update view with quote
+    expect(el.textContent).toBe(testQuote);
+    done();
+  });
+});
+```
+ 
+Even when the done() callback is generally discouraged it could cover cases where the async or fakeAsync implementation is not enough.
+
+### Testing an input & output component
+
+
+### End to end (e2e) testing with protractor
+
+Testing end to end it is like testing from the user point of view. By simulating the user
+behaviour we can test that an application flow right from start to finish is behaving as expected.
+
+The purpose of performing end-to-end testing is to identify system dependencies and to ensure that the data integrity 
+is maintained between various system components. Given that the purpose is not testing isolated components of the system, taking
+the the user point of view we can integrally test things working together like database access, network, communicating with 
+the other systems and application etc.
+
+So, in first place we need a tool capable o behaving like a user but from a programmable perspective, and that is Selenium Webdriver.
+Selenium let us automate the browser.
+
+Angular specifically uses Protractor. Protractor sits on top of Selenium, is a framework dedicated to end-to-end testing 
+AngularJS applications. It allows running tests against a wide range of browsers. Since it is tailor-made for AngularJS, it 
+can seep into the application life cycle. And so it knows when a particular asynchronous operation has ended, thus liberating 
+you from the need to explicitly force the browser to sleep or wait for a given event.
+
+Sample test:
+
+```
+describe("sample test suite", () => {
+  it("should display proper welcome message", () => {
+    browser.get("http://my-site.com")
+ 
+    const welcomeMessageLocator = by.id("welcome-message");
+    const welcomeMessageElementFinder = element(welcomeMessageLocator);
+ 
+    expect(welcomeMessageElementFinder.getText()).toBe("Welcome Angular 2 Developer!");
+  });
+});
+``
