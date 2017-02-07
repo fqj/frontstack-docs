@@ -1,4 +1,4 @@
-#  __GUÍAS DE ESTILO Y BUENAS PRACTICAS__
+#  __GUÍAS DE ESTILO Y BUENAS PRÁCTICAS__
 
 ##  __Guías de estilo__
 
@@ -50,12 +50,12 @@ El diseño de un programa debe ser sencillo. Cuánto más sencillo sea, mejor. H
 #### Principio __SOLID__
 realmente son 5 principios
 
-- __SRP  (Single Responsibility Principle__ , las clases o módulos deben tener una única responsabilidad
-- __Open/Close Principle__, Abierto para su extensión, pero cerrado para su modificación. nos dice que el código está mejor diseñado si se puede modificar su comportamiento sin cambiar su código fuente. Debería bastar con añadir código, en lugar de modificarlo. No deberíamos necesitar modificar una clase a no ser que sea para corregir errores.
-- __Liskov__, principio de sustitución, una clase derivada no debe modificar el comportamiento de la clase base.
-- __ISP (Interface segregation principle)__ una clase que implementa una interfaz no debe depender de métodos que no utiliza. Esto como norma general implica que nuestras interfaces deben ser sencillas y tener pocos métodos. Es preferible tener varias interfaces pequeñas, a tener una interfaz grande. Así no obligamos a los clientes a depender de métodos que no necesitan implementar.
+- __SRP  (Single Responsibility Principle__: las clases o módulos deben tener una única responsabilidad
+- __Open/Close Principle__: Abierto para su extensión, pero cerrado para su modificación. nos dice que el código está mejor diseñado si se puede modificar su comportamiento sin cambiar su código fuente. Debería bastar con añadir código, en lugar de modificarlo. No deberíamos necesitar modificar una clase a no ser que sea para corregir errores.
+- __Liskov__: principio de sustitución, una clase derivada no debe modificar el comportamiento de la clase base.
+- __ISP (Interface segregation principle)__: una clase que implementa una interfaz no debe depender de métodos que no utiliza. Esto como norma general implica que nuestras interfaces deben ser sencillas y tener pocos métodos. Es preferible tener varias interfaces pequeñas, a tener una interfaz grande. Así no obligamos a los clientes a depender de métodos que no necesitan implementar.
 
-- __DIP (Dependency Inversion Principle)__, que viene a decir que las clases de alto nivel, no deben depender de clases de bajo nivel. Ambos deben depender de abstracciones. Además las abstracciones no deben depender de los detalles, si no que los detalles deben depender de las abstracciones. En definitiva, lo que tenemos que hacer es invertir las dependencias.
+- __DIP (Dependency Inversion Principle)__: que viene a decir que las clases de alto nivel, no deben depender de clases de bajo nivel. Ambos deben depender de abstracciones. Además las abstracciones no deben depender de los detalles, si no que los detalles deben depender de las abstracciones. En definitiva, lo que tenemos que hacer es invertir las dependencias.
 
 #### Principio __SoC (separation of concerns)__
 Los asuntos, son los diferentes aspectos de la funcionalidad de nuestra aplicación. Por ejemplo la capa de negocio, la capa de datos etc. Un buen ejemplo de separación es el patrón MVC.
@@ -84,7 +84,7 @@ http://samuelcasanova.com/2016/09/resumen-clean-code/
 para angular2, VISUAL STUDIO CODE
 https://code.visualstudio.com/
 
-aunque tambien se puede usar otro editor añadiendo el plugin para TypeScript
+aunque también se puede usar otro editor añadiendo el plugin para TypeScript
 para el resto de frameworks,  con el que el desarrollador se sienta más cómodo, (Visual Studio Code, SublimeText, Atom, WebStorm, etc)
 
 recomendamos instalar un plugin de __ESLINT__, el que corresponda con cada editor, para que muestre en tiempo real errores de estilo de código
