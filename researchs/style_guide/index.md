@@ -1,6 +1,6 @@
-#  __GUÍAS DE ESTILO Y BUENAS PRACTICAS __
+#  __GUÍAS DE ESTILO Y BUENAS PRACTICAS__
 
-##  __Guías de estilo __
+##  __Guías de estilo__
 
 #### Guia de estilo John Papa __ANGULAR 2__
 
