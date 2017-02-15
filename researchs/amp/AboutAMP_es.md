@@ -5,7 +5,7 @@ AMP en acción consta de tres partes diferentes:
 y con algunas extensiones para compilar contenido enriquecido más allá del formato HTML básico.
 La biblioteca **AMP JS** garantiza la representación rápida de páginas AMP HTML.
 El **Google AMP Cache** (opcional) proporciona las páginas AMP HTML.
-
+x
 ## AMP HTML
 
 AMP HTML es básicamente contenido HTML ampliado con propiedades AMP personalizadas.
