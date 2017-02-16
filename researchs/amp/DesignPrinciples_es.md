@@ -1,8 +1,8 @@
-Estos principios de diseño están destinados a guiar el diseño y desarrollo en curso de AMP. 
+Estos principios de diseño están destinados a guiar el diseño y desarrollo en curso de AMP.
 Deben ayudarnos a tomar decisiones internamente consistentes.
 
 ## Experiencia del usuario > Experiencia del desarrollador > Facilidad de implementación.
-En caso de duda, haga lo que sea mejor para la experiencia del usuario final, incluso si esto significa que es más difícil para el creador de la página para construir 
+En caso de duda, haga lo que sea mejor para la experiencia del usuario final, incluso si esto significa que es más difícil para el creador de la página para construir
 o para el desarrollador de la biblioteca para implementar.
 
 ## No diseñes para un futuro hipotético navegador más rápido.
@@ -13,7 +13,7 @@ los desarrolladores de AMP deben participar en el desarrollo de estándares para
 
 ## No rompas la red.
 Asegúrate de que si AMP tiene interrupciones o problemas, no perjudicas al resto de la web.
-Eso significa que si el caché de Google AMP, la API de URL o la biblioteca falla, 
+Eso significa que si el caché de Google AMP, la API de URL o la biblioteca falla,
 debería ser posible que los sitios web y las aplicaciones de consumo degraden graciosamente. Si algo funciona con una caché de AMP, también debería funcionar sin caché.
 
 ## Resuelves los problemas en la capa correcta.
@@ -23,8 +23,8 @@ P.ej. No integrar las cosas en el lado del cliente, sólo porque eso es más fá
 No introduzca componentes o funciones en AMP que no puedan ejecutarse de forma fiable a 60 fps o dificulten la experiencia de carga instantánea en los dispositivos móviles más comunes de hoy en día.
 
 ## Priorice las cosas que mejoran la experiencia del usuario, pero comprometa cuando sea necesario.
-Algunas cosas se pueden hacer rápidamente y siguen siendo una experiencia de usuario terrible. Las AMP deben ofrecer una experiencia de usuario fantástica 
+Algunas cosas se pueden hacer rápidamente y siguen siendo una experiencia de usuario terrible. Las AMP deben ofrecer una experiencia de usuario fantástica
 y la velocidad es sólo una parte de eso. Sólo un compromiso cuando la falta de apoyo para algo se detiene AMP de ser ampliamente utilizado y desplegado.
 
 ## No hay listas blancas.
-Google no da ningún tratamiento especial a sitios, dominios o orígenes específicos, excepto cuando sea necesario por razones de seguridad o rendimiento.
+Google no da ningún tratamiento especial a sitios, dominios u orígenes específicos, excepto cuando sea necesario por razones de seguridad o rendimiento.
